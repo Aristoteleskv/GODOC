@@ -1,0 +1,278 @@
+
+
+
+
+<div class="dark:bg-muted-800 flex h-screen w-full flex-col items-center md:flex-row min-h-screen">
+  <!-- Imagem de fundo para telas grandes -->
+  <div class="bg-muted-100 dark:bg-muted-900 hidden h-screen w-full md:w-1/2 lg:block xl:w-2/3">
+    <div class="mx-auto w-full h-full flex items-center justify-center max-w-4xl">
+      <img class="max-w-xs mx-auto w-75" src="assets/img/logos/sa23.png" alt="Logo">
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="bg-muted-800 dark:bg-muted-800 w-full max-w-sm flex h-screen items-center justify-center bg-white px-6 mx-auto w-1/2 max-w-md max-w-full px-16 w-1/3 xl:px-12">
+    <div class="mx-auto flex h-full w-full max-w-xs flex-col items-center justify-between py-8">
+      <!-- Cabeçalho com botão de voltar e alternador de tema -->
+      <div class="flex w-full items-center justify-between">
+        <!-- Botão de voltar -->
+        <div *ngIf="isLoggedIn" routerLink="/" class="flex relative z-50 h-16 items-center gap-2">
+          <button title="VOLTAR" type="button" class="flex h-10 w-10 items-center justify-center -ms-3">
+            <div class="scale-90 relative h-5 w-5">
+              <span class="-rotate-45 rtl:rotate-45 max-w-[75%] top-1 bg-primary-500 absolute block h-0.5 w-full transition-all duration-300"></span>
+              <span class="opacity-0 translate-x-4 rtl:-translate-x-4 bg-primary-500 absolute top-1/2 block h-0.5 w-full max-w-[50%] transition-all duration-300"></span>
+              <span class="rotate-45 rtl:-rotate-45 max-w-[75%] bottom-1 bg-primary-500 absolute block h-0.5 w-full transition-all duration-300"></span>
+            </div>
+          </button>
+          <h1 class="nui-heading nui-heading-2xl nui-weight-light nui-lead-normal text-muted-800 hidden dark:text-white md:block">
+            Voltar
+          </h1>
+        </div>
+        <div class="ms-auto"></div>
+        <!-- Alternador de tema -->
+        <div>
+          <label class="nui-theme-toggle" for="theme-button">
+            <input title="Background" type="checkbox" (click)="toggleColorScheme()" class="nui-theme-toggle-input change-theme" id="theme-button">
+            <span class="nui-theme-toggle-inner">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="nui-sun">
+                <g fill="currentColor" stroke="currentColor" class="stroke-2">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                </g>
+              </svg>
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="nui-moon">
+                <path fill="currentColor" stroke="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" class="stroke-2"></path>
+              </svg>
+            </span>
+          </label>
+        </div>
+      </div>
+      <!-- Mensagem de boas-vindas e alertas -->
+      <div class="w-full">
+        <h2 class="nui-heading nui-heading-3xl nui-weight-medium nui-lead-normal text-muted-300">
+          Bem Vindo!
+        </h2>
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+          Acessado como {{ roles }}.
+          <p class="nui-heading nui-weight-medium nui-lead-normal text-muted-500">
+            {{ result }}
+          </p>
+        </div>
+        <p *ngIf="!isLoggedIn" class="nui-paragraph nui-paragraph-sm nui-weight-normal nui-lead-normal text-muted-400 mb-6">
+          Insira dados de credencias para entrar
+        </p>
+        <nz-alert *ngIf="error" nzShowIcon nzType="error" [nzMessage]="error" [ngStyle]="{ 'margin-bottom': '16px' }"></nz-alert>
+        
+        <form
+
+          *ngIf="!isLoggedIn"
+          (ngSubmit)="onSubmit()"
+          class="mt-6"
+          novalidate
+        >
+          <div class="space-y-4">
+            <!--[-->
+            <div
+              class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded nui-has-icon"
+            >
+              <label for="ninja-input-1385" class="nui-input-label"
+                ><!--[-->Email address<!--]--></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input
+                    nz-input
+                    type="email"
+                    name="email"
+                    placeholder="Insira o endereço de e-mail"
+                    [(ngModel)]="email"
+                    type="email"
+                    class="nui-input"
+                  /><!----><!---->
+                  <div class="nui-input-icon">
+                    <!--[--><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner" 
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 256 256"
+                      data-v-26e5b7b0
+                    >
+                      <g fill="currentColor">
+                        <path
+                          d="M192 96a64 64 0 1 1-64-64a64 64 0 0 1 64 64Z"
+                          opacity=".2"
+                        />
+                        <path
+                          d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56Z"
+                        />
+                      </g></svg
+                    ><!--]-->
+                  </div>
+                  <!--[--><!--]-->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!--]--><!--[-->
+            <div
+              class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded nui-has-icon"
+            >
+              <label for="ninja-input-1386" class="nui-input-label"
+                ><!--[-->Password<!--]--></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input
+                    nz-input
+                    type="password"
+                    name="password"
+                    placeholder="Coloque sua senha"
+                    [(ngModel)]="password"
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="nui-input"
+                  /><!----><!---->
+                  <span  class="nui-input-icon"
+                    [attr.aria-label]="showPassword ? 'Hide' : 'Show'"
+                    (click)="showPassword = !showPassword" >
+                    <!--[--><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner" 
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 256 256"
+                      data-v-26e5b7b0
+                    >
+                      <g fill="currentColor">
+                        <path
+                          d="M216 96v112a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V96a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                          opacity=".2"
+                        />
+                        <path
+                          d="M208 80h-32V56a48 48 0 0 0-96 0v24H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16ZM96 56a32 32 0 0 1 64 0v24H96Zm112 152H48V96h160v112Zm-68-56a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"
+                        />
+                      </g></svg
+                    ><!--]-->
+                  </span>
+                  <!--[--><!--]-->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!--]-->
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <!--[-->
+            <div class="nui-checkbox nui-checkbox-rounded nui-checkbox-primary">
+              <div class="nui-checkbox-outer">
+                <input
+                  id="ninja-input-1387"
+                  true-value="true"
+                  false-value="false"
+                  class="nui-checkbox-input"
+                  type="checkbox"
+                />
+                <div class="nui-checkbox-inner"></div>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 17 12"
+                  class="nui-icon-check"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"
+                  ></path></svg
+                ><svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  class="nui-icon-indeterminate"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="4"
+                    d="M2 12h20"
+                  ></path>
+                </svg>
+              </div>
+              <div class="nui-checkbox-label-wrapper">
+                <label for="ninja-input-1387" class="nui-checkbox-label-text"
+                  ><!--[-->memorisar<!--]--></label
+                ><!---->
+              </div>
+            </div>
+            <!--]-->
+            <div class="text-sm leading-5">
+              <a
+                href="recover.html"
+                class="text-primary-600 hover:text-primary-500 font-sans text-xs font-medium underline-offset-4 transition duration-150 ease-in-out hover:underline"
+              >
+                Esqueceu o password?
+              </a>
+            </div>
+          </div>
+          <div class="mt-6">
+            <div class="block w-full rounded-md shadow-sm">
+              <button
+                nz-button
+                type="submit"
+                [disabled]="!canSubmit()"
+                [nzLoading]="loading"
+                rel
+                target
+                class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-primary !h-11 w-full"
+              >
+                <!--[-->
+                Entrar
+                <!--]--><!---->
+              </button>
+            </div>
+          </div>
+        </form>
+        <hr
+          class="border-muted-200 dark:border-muted-700 my-6 w-full border-t"
+        />
+        <p
+          class="text-muted-400 mt-4 flex justify-between font-sans text-xs leading-5"
+        >
+          <span>Não tens uma conta?</span
+          ><a
+            routerLink="/register"
+            class="text-primary-600 hover:text-primary-500 font-medium underline-offset-4 transition duration-150 ease-in-out hover:underline"
+          >
+            Solicitar uma nova conta
+          </a>
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="flex relative h-16 items-center">
+          <img
+            class="max-w-xs mx-auto w-60"
+            src="assets/img/logos/goe-Angola-Gov.png"
+            alt=""
+          />
+        </div>
+        <p
+          class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+        >
+          <!--[-->
+          © 2023 GOEDOC. All rights reserved.
+          <!--]-->
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ 

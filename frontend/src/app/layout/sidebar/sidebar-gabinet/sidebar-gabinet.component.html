@@ -1,0 +1,436 @@
+<ul *ngIf="isLoggedIn">
+  <li class="group mb-1 min-h-[2rem]">
+    <a routerLink="evento" class="nui-focus relative top-0.5 flex items-center">
+      <span
+        class="text-muted-400 group-hover:text-primary-500 relative inline-flex items-center gap-2 font-sans text-sm transition-colors duration-100"
+      >
+        <span class="svg-icon svg-icon-2">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.3"
+              d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        <span>Eventos</span>
+      </span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        aria-hidden="true"
+        role="img"
+        class="icon text-muted-400 ms-auto block h-4 w-4 transition-transform duration-300 group-focus-within:rotate-180"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+        data-v-26e5b7b0=""
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m6 9l6 6l6-6"
+        ></path>
+      </svg>
+    </a>
+  </li>
+
+  <!--[-->
+  <li class="group mb-1 min-h-[2rem] max-w-[2rem]">
+    <button
+      class="m-auto mx-auto w-full nui-focus relative top-0.5 flex items-center"
+    >
+    <span class="bg-primary-500 absolute -start-3 top-2 size-1 rounded-full"></span>
+      <span
+        class="text-muted-400 group-hover:text-primary-500 relative inline-flex items-center gap-2 font-sans text-sm transition-colors duration-300"
+      >
+        <span class="svg-icon svg-icon-2">
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.3"
+              d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        <span>Documentos</span>
+      </span>
+      <span class="svg-icon svg-icon-5 m-auto mx-auto w-full">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="text-muted-400 ms-auto block h-4 w-5 transition-transform duration-300 group-focus-within:rotate-180"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          data-v-26e5b7b0=""
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m6 9l6 6l6-6"
+          ></path>
+        </svg>
+      </span>
+    </button>
+    <div
+      class="max-h-0 overflow-hidden group-focus-within:max-h-max group-focus-within:overflow-visible group-focus-within:opacity-100 transition-all duration-150"
+    >
+      <ul class="py-2">
+        <!--[-->
+        <li class="flex h-8 w-full items-center">
+          <a
+            routerLinkActive="active"
+            routerLink="doc/explore/pastas"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+          >
+            <span class="coricon">
+              <svg
+                class="icon me-2 h-5 w-5"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  _ngcontent-oos-c292=""
+                  opacity="0.3"
+                  d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </span>
+            <span
+              class="text-muted-400 group-hover:text-primary-500 relative inline-flex items-center gap-2 font-sans text-sm transition-colors duration-300"
+            >
+              Pastas
+            </span>
+          </a>
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            routerLinkActive="active"
+            routerLink="doc/explore/ficheiros"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 h-5 w-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                opacity="0.3"
+                d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z"
+                fill="currentColor"
+              ></path>
+              <rect
+                x="7"
+                y="17"
+                width="6"
+                height="2"
+                rx="1"
+                fill="currentColor"
+              ></rect>
+              <rect
+                x="7"
+                y="12"
+                width="10"
+                height="2"
+                rx="1"
+                fill="currentColor"
+              ></rect>
+              <rect
+                x="7"
+                y="7"
+                width="6"
+                height="2"
+                rx="1"
+                fill="currentColor"
+              ></rect>
+              <path
+                d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            <span class="font-sans text-xs">Ficheiros</span>
+          </a>
+        </li>
+      
+        <li class="flex h-8 w-full items-center">
+          <a
+            href="/layouts/payments"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+            ><svg
+              data-v-b4402e20=""
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 size-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <path
+                fill="currentColor"
+                d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"
+              ></path></svg
+            ><span class="font-sans text-xs" _msttexthash="211783" _msthash="56"
+              >Extrovertido</span
+            ></a
+          >
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            href="/layouts/payments/incoming"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+            ><svg
+              data-v-b4402e20=""
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 size-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <path
+                fill="currentColor"
+                d="M224 128a8 8 0 0 1-8 8H59.31l58.35 58.34a8 8 0 0 1-11.32 11.32l-72-72a8 8 0 0 1 0-11.32l72-72a8 8 0 0 1 11.32 11.32L59.31 120H216a8 8 0 0 1 8 8"
+              ></path></svg
+            ><span class="font-sans text-xs" _msttexthash="115128" _msthash="57"
+              >Entrante</span
+            ></a
+          >
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            href="/layouts/payments/recipients"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+            ><svg
+              data-v-b4402e20=""
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 size-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <g fill="currentColor">
+                <path
+                  d="M136 108a52 52 0 1 1-52-52a52 52 0 0 1 52 52"
+                  opacity=".2"
+                ></path>
+                <path
+                  d="M117.25 157.92a60 60 0 1 0-66.5 0a95.83 95.83 0 0 0-47.22 37.71a8 8 0 1 0 13.4 8.74a80 80 0 0 1 134.14 0a8 8 0 0 0 13.4-8.74a95.83 95.83 0 0 0-47.22-37.71M40 108a44 44 0 1 1 44 44a44.05 44.05 0 0 1-44-44m210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16a44 44 0 1 0-16.34-84.87a8 8 0 1 1-5.94-14.85a60 60 0 0 1 55.53 105.64a95.83 95.83 0 0 1 47.22 37.71a8 8 0 0 1-2.33 11.07"
+                ></path>
+              </g></svg
+            ><span class="font-sans text-xs" _msttexthash="260078" _msthash="58"
+              >Destinatários</span
+            ></a
+          >
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            href="/layouts/send"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+            ><svg
+              data-v-b4402e20=""
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 size-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <g fill="currentColor">
+                <path
+                  d="M227.91 134.86L59.93 231a8 8 0 0 1-11.44-9.67L80 128L48.49 34.72a8 8 0 0 1 11.44-9.67l168 95.85a8 8 0 0 1-.02 13.96"
+                  opacity=".2"
+                ></path>
+                <path
+                  d="m231.87 114l-168-95.89a16 16 0 0 0-22.95 19.23L71.55 128l-30.63 90.67A16 16 0 0 0 56 240a16.15 16.15 0 0 0 7.93-2.1l167.92-96.05a16 16 0 0 0 .05-27.89ZM56 224a.6.6 0 0 0 0-.12L85.74 136H144a8 8 0 0 0 0-16H85.74L56.06 32.16A.5.5 0 0 0 56 32l168 95.83Z"
+                ></path>
+              </g></svg
+            ><span class="font-sans text-xs" _msttexthash="289029" _msthash="59"
+              >Enviar pagamento</span
+            ></a
+          >
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            href="/layouts/receive"
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+            ><svg
+              data-v-b4402e20=""
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon me-2 size-5"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <g fill="currentColor">
+                <path
+                  d="M224 56v152l-32-16l-32 16l-32-16l-32 16l-32-16l-32 16V56a8 8 0 0 1 8-8h176a8 8 0 0 1 8 8"
+                  opacity=".2"
+                ></path>
+                <path
+                  d="M72 104a8 8 0 0 1 8-8h96a8 8 0 0 1 0 16H80a8 8 0 0 1-8-8m8 40h96a8 8 0 0 0 0-16H80a8 8 0 0 0 0 16m152-88v152a8 8 0 0 1-11.58 7.15L192 200.94l-28.42 14.21a8 8 0 0 1-7.16 0L128 200.94l-28.42 14.21a8 8 0 0 1-7.16 0L64 200.94l-28.42 14.21A8 8 0 0 1 24 208V56a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16m-16 0H40v139.06l20.42-10.22a8 8 0 0 1 7.16 0L96 199.06l28.42-14.22a8 8 0 0 1 7.16 0L160 199.06l28.42-14.22a8 8 0 0 1 7.16 0L216 195.06Z"
+                ></path>
+              </g></svg
+            ><span class="font-sans text-xs" _msttexthash="316342" _msthash="60"
+              >Receber pagamento</span
+            ></a
+          >
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!--]-->
+  <li class="group mb-1 min-h-[2rem] max-w-[2rem]">
+    <button
+      class="m-auto mx-auto w-full nui-focus relative top-0.5 flex items-center"
+    >
+      <span
+        class="text-muted-400 group-hover:text-primary-500 relative inline-flex items-center gap-2 font-sans text-sm transition-colors duration-300"
+      >
+        Lists
+        <nz-badge [nzCount]="5" style="margin-right: 24px"> </nz-badge>
+      </span>
+      <!---->
+      <span class="svg-icon svg-icon-5 m-auto mx-auto w-full">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="icon text-muted-400 ms-auto block h-4 w-4 transition-transform duration-300 group-focus-within:rotate-180"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m6 9l6 6l6-6"
+          ></path>
+        </svg>
+      </span>
+    </button>
+    <div
+      class="max-h-0 overflow-hidden opacity-0 group-focus-within:max-h-max group-focus-within:overflow-visible group-focus-within:opacity-100 transition-all duration-150"
+    >
+      <ul class="py-2">
+        <!--[-->
+        <li class="flex h-8 w-full items-center">
+          <a
+            class="router-link-active nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+          >
+            <span class="coricon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon me-2 h-5 w-5 text-muted-400 ms-auto block transition-transform duration-300"
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  fill="currentColor"
+                  d="M80 64a8 8 0 0 1 8-8h128a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm136 56H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16Zm0 64H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16ZM44 52a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Z"
+                ></path>
+              </svg>
+            </span>
+
+            <span class="font-sans text-xs">List view V1</span></a
+          >
+        </li>
+        <li class="flex h-8 w-full items-center">
+          <a
+            class="nui-focus text-muted-400 hover:text-primary-500 focus:text-primary-500 flex w-full items-center ps-3 transition-colors duration-300"
+          >
+            <span class="coricon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon me-2 h-5 w-5"
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  fill="currentColor"
+                  d="M80 64a8 8 0 0 1 8-8h128a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm136 56H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16Zm0 64H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16ZM44 52a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="font-sans text-xs">List view V2</span></a
+          >
+        </li>
+
+        <!--]-->
+      </ul>
+    </div>
+  </li>
+  <!--[-->
+ 
+</ul>

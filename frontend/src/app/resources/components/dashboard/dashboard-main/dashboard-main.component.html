@@ -1,0 +1,28 @@
+
+      <span [ngSwitch]="User.role.id">
+      <p *ngSwitchCase="1">
+        <app-dashboard-departamento></app-dashboard-departamento>
+      </p>
+      <p *ngSwitchCase="2">
+        <app-dashboard-departamento></app-dashboard-departamento>
+      </p>
+      <p *ngSwitchCase="3">
+        <app-dashboard-departamento></app-dashboard-departamento>
+      </p>
+      <p *ngSwitchCase="5">
+      <app-dashboard-gabinete></app-dashboard-gabinete>
+      </p>
+      <p *ngSwitchCase="6">
+        <app-dashboard-recepcao></app-dashboard-recepcao>
+       </p>
+       <p *ngSwitchCase="7">
+        <app-dashboard-recepcao></app-dashboard-recepcao>
+       </p>
+       <p *ngSwitchCase="9">
+        <app-dashboard-departamento></app-dashboard-departamento>
+        </p>
+
+      <p *ngSwitchDefault>
+
+      </p>
+      </span>

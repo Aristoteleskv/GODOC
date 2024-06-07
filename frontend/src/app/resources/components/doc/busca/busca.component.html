@@ -1,0 +1,235 @@
+<div class="px-6">
+  <button type="button" (click)="abrirfechar()" class="dark:bg-muted-800 m-auto mx-auto w-full bg-white text-left align-middle  transition-all p-3 rounded-xl rounded-md max-w-md group-[&amp;.scrolled]/landing:bg-muted-100 group-[&amp;.scrolled]/landing:dark:bg-muted-900 group-[&amp;.scrolled]/landing:border-muted-100 group-[&amp;.scrolled]/landing:dark:border-muted-800 group-[&amp;.scrolled]/landing:text-muted-400 group-[&amp;.scrolled]/landing:dark:text-muted-500 group-[&amp;.scrolled]/landing:hover:text-primary-500 group-[&amp;.scrolled]/landing:dark:hover:text-primary-500 group-[&amp;:not(.scrolled)]/landing:text-muted-800 group-[&amp;:not(.scrolled)]/landing:dark:text-muted-200 group flex items-center gap-2 rounded-xl py-1 pe-1 ps-3 group-[&amp;.scrolled]/landing:border" aria-label="Open search"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon size-4 motion-safe:transition-colors motion-safe:duration-300" style="" width="1em" height="1em" viewBox="0 0 24 24" data-v-7663d7ec=""><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21l-4.3-4.3"></path></g></svg><span class="group-[&amp;.scrolled]/landing:dark:bg-muted-800 group-[&amp;.scrolled]/landing:border-muted-200 group-[&amp;.scrolled]/landing:dark:border-muted-700 group-[&amp;.scrolled]/landing:group-hover:text-muted-600 group-[&amp;.scrolled]/landing:dark:group-hover:text-muted-100 rounded-lg border px-2 py-0.5 group-[&amp;:not(.scrolled)]/landing:border-transparent group-[&amp;.scrolled]/landing:bg-white group-[&amp;.scrolled]/landing:shadow motion-safe:transition-colors motion-safe:duration-300"><kbd class="font-sans text-sm tracking-wide">ctrl + k </kbd></span></button>
+</div>
+
+ <nz-modal
+    [(nzVisible)]="showBanner"
+    [nzFooter]="null"
+    [nzTitle]="null"
+    (nzOnOk)="abrirfechar()"
+    (nzOnCancel)="abrirfechar()"
+    >
+
+     <div *nzModalContent class=" dark:bg-muted-800 m-auto mx-auto w-full bg-white text-left align-middle  transition-all p-3 rounded-xl rounded-md max-w-md">
+        <div>
+          <div class="px-2 pb-2">
+            <div
+              class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon nui-input-focus"
+            >
+              <label class="nui-input-label" for="ninja-input-18"
+                ><span class="flex w-full justify-between"
+                  ><span>Search</span
+                  ><span class="text-xs opacity-60">
+                    navigate with <kbd>↑</kbd> and <kbd>↓</kbd></span
+                  ></span
+                ></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input
+                    id="ninja-input-18"
+                    type="search"
+                    class="nui-input"
+                    placeholder="Ex: button or analytics..."
+                  /><!----><!---->
+                  <div class="nui-input-icon">
+                    <svg
+                      data-v-7663d7ec=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21l-4.3-4.3"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <!---->
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div>
+            <div class="px-3 pt-2">
+              <span
+                class="nui-text-500 text-[0.65rem] font-medium uppercase tracking-wider"
+              >
+                Demo Pages
+              </span>
+            </div>
+            <ul>
+              <li class="">
+                <a
+                  href="/wizard/step-7"
+                  class="nui-focus hover:bg-muted-50 focus:bg-muted-50 dark:hover:bg-muted-900 dark:focus:bg-muted-900 group flex items-center rounded p-3"
+                  ><div class="flex grow flex-col">
+                    <span
+                      class="nui-text-600 font-heading group-hover:text-primary-500 group-focus:text-primary-500 dark:group-hover:text-primary-400 dark:group-focus:text-primary-400 text-sm"
+                      >Wizard — Step
+                      <mark
+                        class="nui-text-800 group-focus:text-primary-500 underline decoration-muted-500/40 group-focus:decoration-primary-500/40 group-hover:decoration-primary-500/40 group-hover:text-primary-500 dark:group-focus:text-primary-400 dark:group-hover:text-primary-400 bg-transparent"
+                        >7</mark
+                      ></span
+                    ><span class="nui-text-400 line-clamp-1 text-sm"
+                      >For onboarding and step forms</span
+                    >
+                  </div>
+                  <!----></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col items-center py-3 text-center">
+          <div class="scale-[0.8]">
+            <p
+              class="nui-text nui-content-xs nui-weight-medium nui-lead-normal text-muted-400"
+            >
+              Search by
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="shrink-0 text-muted-400 mx-auto w-20"
+              viewBox="0 0 1524.6 500"
+            >
+              <defs>
+                <path
+                  id="a"
+                  d="M180.5 391.1c-53-2.4-77.4-18-77.4-74.2V191.3h79.5V88.2h-79.5V1.7H0V321c0 119.2 69.5 168.6 180.5 168.8h2.1v-98.7h-2.1z"
+                ></path>
+              </defs>
+              <use
+                xlink:href="#a"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="b">
+                <use xlink:href="#a" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M0 1.7h182.6v488.1H0z"
+                clip-path="url(#b)"
+              ></path>
+              <defs>
+                <path
+                  id="c"
+                  d="M409.2 181.2c59.6 0 107.8 48.3 107.8 107.8 0 59.6-48.3 107.8-107.8 107.8-59.6 0-107.8-48.3-107.8-107.8s48.3-107.8 107.8-107.8m206.7-93h-98.5v43C486.2 98.3 443.2 79.6 394 79.6c-104.7 0-197.2 90.6-197.2 210.2 0 118.8 92.5 209.4 197.2 209.4 49.2 0 92.2-18.8 123.5-51.6v43H616V88.2z"
+                ></path>
+              </defs>
+              <use
+                xlink:href="#c"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="d">
+                <use xlink:href="#c" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M196.8 79.6H616v419.7H196.8z"
+                clip-path="url(#d)"
+              ></path>
+              <defs><path id="e" d="M674.2 88.2h103.2v402.5H674.2z"></path></defs>
+              <use
+                xlink:href="#e"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="f">
+                <use xlink:href="#e" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M674.2 88.2h103.2v402.5H674.2z"
+                clip-path="url(#f)"
+              ></path>
+              <defs>
+                <path
+                  id="g"
+                  d="M1047.4 80.4C913.8 64 834.8 143.7 834.8 257.8v232.9H938V257.8c0-57 43.8-92.2 109.4-80.5V80.4z"
+                ></path>
+              </defs>
+              <use
+                xlink:href="#g"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="h">
+                <use xlink:href="#g" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M834.8 63.9h212.6v426.7H834.8z"
+                clip-path="url(#h)"
+              ></path>
+              <defs>
+                <path
+                  id="i"
+                  d="M1270.4 181.2c59.6 0 107.8 48.3 107.8 107.8 0 59.6-48.3 107.8-107.8 107.8-59.6 0-107.8-48.3-107.8-107.8-.1-59.5 48.2-107.8 107.8-107.8m0-103.2c-116.5 0-211 94.5-211 211s94.5 211 211 211 211-94.5 211-211c0-25.2-4.4-49.5-12.6-71.9-5.2-14.4-16.9-24.2-32-26.9-45.1-7.9-82-39.7-97.1-81.9-5.2-14.5-16.8-24.3-31.9-27-12.1-2.1-24.6-3.3-37.4-3.3z"
+                ></path>
+              </defs>
+              <use
+                xlink:href="#i"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="j">
+                <use xlink:href="#i" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M1059.4 78h422v422h-422z"
+                clip-path="url(#j)"
+              ></path>
+              <defs>
+                <path
+                  id="k"
+                  d="M1458.8 0c36.3 0 65.8 29.5 65.8 65.8s-29.5 65.8-65.8 65.8-65.8-29.5-65.8-65.8S1422.4 0 1458.8 0"
+                ></path>
+              </defs>
+              <use
+                xlink:href="#k"
+                fill="currentColor"
+                fill-rule="evenodd"
+                class="overflow-visible"
+                clip-rule="evenodd"
+              ></use>
+              <clipPath id="l">
+                <use xlink:href="#k" class="overflow-visible"></use>
+              </clipPath>
+              <path
+                fill="currentColor"
+                d="M1393 0h131.6v131.6H1393z"
+                clip-path="url(#l)"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </nz-modal>
+ 

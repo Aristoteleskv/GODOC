@@ -1,0 +1,59 @@
+<div class="modal-body mx-auto w-full max-w-xs text-center">
+  <div class="modal-body mx-auto w-full max-w-xs text-center">
+    <div *ngFor="let contact of contacts; let i = index">
+      <input
+        title="f"
+        type="checkbox"
+        [id]="contact.email"
+        [(ngModel)]="contacts[i].selected"
+      />
+      <label [for]="contact.email">{{ contact.full_name }}</label>
+    </div>
+
+    <h1>{{ fileId }}</h1>
+ 
+     <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>Descrição</nz-form-label>
+      <nz-form-control
+        [nzSpan]="12"
+        nzHasFeedback
+        nzErrorTip="Please write something here!"
+      >
+        <nz-textarea-count [nzMaxCharacterCount]="2000">
+          <textarea
+            [(ngModel)]="mensagem"
+            nz-input
+            rows="2"
+            placeholder="Digite sua notificação"
+          ></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+<div class="modal-footer flex w-full items-center gap-x-2 justify-end">
+  <div class="p-4 md:p-6">
+    <div class="flex gap-x-2">
+      <button
+        type="button"
+        rel=""
+        target=""
+        class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-default"
+      >
+        Decline
+        <!---->
+      </button>
+      <button
+        nz-button
+        type="button"
+        (click)="shareFiles()"
+        rel=""
+        target=""
+        class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-primary"
+      >
+        Accept
+        <!---->
+      </button>
+    </div>
+  </div>
+</div>

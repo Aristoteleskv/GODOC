@@ -1,0 +1,314 @@
+<div class="register-container">
+  <div class="form-container">
+
+    <form
+
+      (ngSubmit)="onSubmit()"
+      class="mx-auto w-full max-w-xs"
+      novalidate=""
+    >
+      <h2 class="nui-heading nui-heading-3xl nui-weight-medium text-muted-400 nui-lead-normal">
+        <!--[-->
+        Bem-Vindo!
+        <!--]-->
+      </h2>
+      <p
+        class="nui-paragraph nui-paragraph-sm nui-weight-normal nui-lead-normal text-muted-400 mb-6"
+      >
+        <!--[-->
+        Let's start by creating you account
+        <!--]-->
+      </p>
+      <nz-alert
+      *ngIf="errorMessage"
+      nzShowIcon
+      nzType="error"
+      [nzMessage]="errorMessage"
+      [ngStyle]="{ 'margin-bottom': '16px' }"
+    ></nz-alert>
+      <div class="mb-4 space-y-3">
+        <!--[-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <div class="nui-input-outer">
+            <div>
+              <input
+                class="nui-input"
+                nz-input
+                type="text"
+                name="fullName"
+                [(ngModel)]="user.full_name"
+                placeholder="Escreva seu nome completo"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M192 96a64 64 0 1 1-64-64a64 64 0 0 1 64 64Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56Z"
+                    ></path>
+                  </g></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <div class="nui-input-outer">
+            <div>
+              <input
+                id="ninja-input-91"
+                type="text"
+                class="nui-input"
+                placeholder="Username"
+                value="maya"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="M72 128a134.63 134.63 0 0 1-14.16 60.47a8 8 0 1 1-14.32-7.12A118.8 118.8 0 0 0 56 128a71.73 71.73 0 0 1 27-56.2a8 8 0 1 1 10 12.49A55.76 55.76 0 0 0 72 128Zm56-8a8 8 0 0 0-8 8a184.12 184.12 0 0 1-23 89.1a8 8 0 0 0 14 7.76A200.19 200.19 0 0 0 136 128a8 8 0 0 0-8-8Zm0-32a40 40 0 0 0-40 40a8 8 0 0 0 16 0a24 24 0 0 1 48 0a214.09 214.09 0 0 1-20.51 92a8 8 0 1 0 14.51 6.83A230 230 0 0 0 168 128a40 40 0 0 0-40-40Zm0-64A104.11 104.11 0 0 0 24 128a87.76 87.76 0 0 1-5 29.33a8 8 0 0 0 15.09 5.33A103.9 103.9 0 0 0 40 128a88 88 0 0 1 176 0a282.24 282.24 0 0 1-5.29 54.45a8 8 0 0 0 6.3 9.4a8.22 8.22 0 0 0 1.55.15a8 8 0 0 0 7.84-6.45A298.37 298.37 0 0 0 232 128A104.12 104.12 0 0 0 128 24ZM94.4 152.17a8 8 0 0 0-9.4 6.25a151 151 0 0 1-17.21 45.44a8 8 0 0 0 13.86 8a166.67 166.67 0 0 0 19-50.25a8 8 0 0 0-6.25-9.44ZM128 56a72.85 72.85 0 0 0-9 .56a8 8 0 0 0 2 15.87A56.08 56.08 0 0 1 184 128a252.12 252.12 0 0 1-1.92 31a8 8 0 0 0 6.92 9a8.39 8.39 0 0 0 1 .06a8 8 0 0 0 7.92-7a266.48 266.48 0 0 0 2-33A72.08 72.08 0 0 0 128 56Zm57.93 128.25a8 8 0 0 0-9.75 5.75c-1.46 5.69-3.15 11.4-5 17a8 8 0 0 0 5 10.13a7.88 7.88 0 0 0 2.55.42a8 8 0 0 0 7.58-5.46c2-5.92 3.79-12 5.35-18.05a8 8 0 0 0-5.72-9.78Z"
+                    ></path>
+                  </g></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--]-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <div class="nui-input-outer">
+            <div>
+              <input
+                class="nui-input"
+                nz-input
+                type="text"
+                name="telefone"
+                [(ngModel)]="user.telefone"
+                placeholder="Seu numero de telefone"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M223.94 174.08A48.33 48.33 0 0 1 176 216A136 136 0 0 1 40 80a48.33 48.33 0 0 1 41.92-47.94a8 8 0 0 1 8.3 4.8l21.13 47.2a8 8 0 0 1-.66 7.53L89.32 117a7.93 7.93 0 0 0-.54 7.81c8.27 16.93 25.77 34.22 42.75 42.41a7.92 7.92 0 0 0 7.83-.59l25-21.3a8 8 0 0 1 7.59-.69l47.16 21.13a8 8 0 0 1 4.83 8.31Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="m222.37 158.46l-47.11-21.11l-.13-.06a16 16 0 0 0-15.17 1.4a8.12 8.12 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16 16 0 0 0 1.32-15.06v-.12L97.54 33.64a16 16 0 0 0-16.62-9.52A56.26 56.26 0 0 0 32 80c0 79.4 64.6 144 144 144a56.26 56.26 0 0 0 55.88-48.92a16 16 0 0 0-9.51-16.62ZM176 208A128.14 128.14 0 0 1 48 80a40.2 40.2 0 0 1 34.87-40a.61.61 0 0 0 0 .12l21 47l-20.67 24.74a6.13 6.13 0 0 0-.57.77a16 16 0 0 0-1 15.7c9.06 18.53 27.73 37.06 46.46 46.11a16 16 0 0 0 15.75-1.14a8.44 8.44 0 0 0 .74-.56L168.89 152l47 21.05h.11A40.21 40.21 0 0 1 176 208Z"
+                    ></path>
+                  </g>
+                </svg>
+                <!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--[-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <!---->
+          <div class="nui-input-outer">
+            <div>
+              <input
+                class="nui-input"
+                nz-input
+                type="email"
+                name="email"
+                [(ngModel)]="user.email"
+                placeholder="Insira o seu endereço de email"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="M128 24a104 104 0 0 0 0 208c21.51 0 44.1-6.48 60.43-17.33a8 8 0 0 0-8.86-13.33C166 210.38 146.21 216 128 216a88 88 0 1 1 88-88c0 26.45-10.88 32-20 32s-20-5.55-20-32V88a8 8 0 0 0-16 0v4.26a48 48 0 1 0 5.93 65.1c6 12 16.35 18.64 30.07 18.64c22.54 0 36-17.94 36-48A104.11 104.11 0 0 0 128 24Zm0 136a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z"
+                    ></path>
+                  </g></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--]--><!--[-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <!---->
+          <div class="nui-input-outer">
+            <div>
+              <input
+                class="nui-input"
+                nz-input
+                type="password"
+                name="password"
+                [(ngModel)]="user.password"
+                placeholder="Digite uma senha forte"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M216 96v112a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V96a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="M208 80h-32V56a48 48 0 0 0-96 0v24H48a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16ZM96 56a32 32 0 0 1 64 0v24H96Zm112 152H48V96h160v112Zm-68-56a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"
+                    ></path>
+                  </g></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--]--><!--[-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <!---->
+          <div class="nui-input-outer">
+            <div>
+              <input
+                class="nui-input"
+                nz-input
+                type="password"
+                name="confirmPassword"
+                [(ngModel)]="confirmPassword"
+                placeholder="Confirmar a senha"
+              /><!----><!---->
+              <div class="nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  style=""
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <path
+                    fill="currentColor"
+                    d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32Z"
+                  ></path></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--]-->
+      </div>
+      <button
+        rel=""
+        target=""
+        class="nui-button nui-button-medium nui-button-curved nui-button-solid nui-button-primary !h-11 w-full"
+        nz-button
+        type="submit"
+        [disabled]="!canSubmit()"
+        [nzLoading]="loading"
+      >
+        Registar-me
+        <!--]--><!---->
+      </button>
+      <p
+        class="text-muted-400 mt-4 flex justify-between font-sans text-sm leading-5"
+      >
+        <span>Have an account?</span
+        ><a routerLink="/login" class="text-primary-600 hover:text-primary-500 font-medium underline-offset-4 transition duration-150 ease-in-out hover:underline focus:underline focus:outline-none"
+        >
+        Entrar se já tens uma conta
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,283 @@
+<div class="row" *ngIf="!pasta; else content">
+  <h1>Loading...</h1>
+  <div role="progressbar" aria-valuemax="100" class="nui-progress nui-progress-default nui-progress-warning nui-progress-sm nui-progress-full" title="indeterminate warning progress bar"><div class="nui-progress-indeterminate animate-nui-progress-indeterminate nui-progress-bar" style="width: 100%"></div></div>
+</div>
+<ng-template #content>
+ <div class="pb-2 nui-card nui-card-white nui-card-curved rounded-lg nui-card-shadow-hover nui-card-shadow  hover:!border-orange-500 border-2  ">
+    <div class="p-2 transition-all duration-300 flex flex-col ">
+      <nz-table #Table [nzData]="pasta">
+
+        <thead >
+         <div class="w-full  p-3 flex items-center justify-between">
+          <nz-button-group class="nui-button-group h-45">
+            <button
+              title="d"
+              class="rotate-50  nui-button-action nui-button-warning items-center justify-center rounded-full x h-10 w-9 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+            >
+              <span nz-icon nzType="more"></span>
+            </button>
+
+
+          <button class="nui-input-wrapper nui-input-md nui-has-icon w-full">
+            <div class="nui-input-outer  ">
+
+              <input  type="search" class="nui-input  !bg-muted-100 dark:!bg-muted-700 rounded-lg border focus:!bg-muted-900 dark:focus:!bg-muted-900" placeholder="Search" id="searchTextPastas" [(ngModel)]="searchTextPastas">
+                <div class="nui-input-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon nui-input-icon-inner" width="1em" height="1em" viewBox="0 0 24 24" data-v-26e5b7b0="">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21l-4.3-4.3"></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </button>
+
+
+          </nz-button-group>
+
+          <nz-button-group class="nui-button-group mx-5 h-45">
+            <button (click)="showModal()" title="editar" class="nui-button-action nui-button-warning rounded-full x h-10 nui-button-rounded nui-button-full inline-flex cursor-pointer rounded-lg">
+              <span  class="icon   svg-icon svg-icon-2x svg-icon-primary me-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" stroke-linecap="round" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z" fill="currentColor"></path>
+                  <path d="M10.4 3.60001L12 6H21C21.6 6 22 6.4 22 7V19C22 19.6 21.6 20 21 20H3C2.4 20 2 19.6 2 19V4C2 3.4 2.4 3 3 3H9.2C9.7 3 10.2 3.20001 10.4 3.60001ZM16 12H13V9C13 8.4 12.6 8 12 8C11.4 8 11 8.4 11 9V12H8C7.4 12 7 12.4 7 13C7 13.6 7.4 14 8 14H11V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V14H16C16.6 14 17 13.6 17 13C17 12.4 16.6 12 16 12Z" fill="currentColor"></path>
+                  <path opacity="0.3" stroke-linecap="round" d="M11 14H8C7.4 14 7 13.6 7 13C7 12.4 7.4 12 8 12H11V14ZM16 12H13V14H16C16.6 14 17 13.6 17 13C17 12.4 16.6 12 16 12Z" fill="currentColor"></path>
+                </svg>
+            </span>Criar Pasta
+          </button>
+
+            <button title="editar" (click)="fileModal()" class="nui-button-action nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+              <span  class="icon   svg-icon svg-icon-2x svg-icon-primary me-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" stroke-linecap="round" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z" fill="currentColor"></path>
+                  <path stroke-linecap="round" d="M10.4 3.60001L12 6H21C21.6 6 22 6.4 22 7V19C22 19.6 21.6 20 21 20H3C2.4 20 2 19.6 2 19V4C2 3.4 2.4 3 3 3H9.20001C9.70001 3 10.2 3.20001 10.4 3.60001ZM16 11.6L12.7 8.29999C12.3 7.89999 11.7 7.89999 11.3 8.29999L8 11.6H11V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V11.6H16Z" fill="currentColor"></path>
+                  <path stroke-linecap="round" opacity="0.3" d="M11 11.6V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V11.6H11Z" fill="currentColor"></path>
+                </svg>
+              </span>
+              Add Ficheiro
+            </button>
+             <button
+                title="d"
+                class="rotate-50  nui-button-action nui-button-warning items-center justify-center rounded-full x h-10 w-9 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+              >
+                <span nz-icon nzType="more"></span>
+              </button>
+          </nz-button-group>
+
+            </div>
+            <tr class=" w-full p-2 nui-focus hover:bg-muted-100 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none  gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+
+              Name
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="    mt-4 inline-flex list-none transition-all duration-100" *ngFor="let p of pasta | search: searchTextPastas">
+
+            <td class=" w-full p-2 nui-focus hover:bg-muted-100 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none  gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                  <!--[-->
+                    <details
+                      class=" w-full group  hover:bg-muted-100 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none items-center justify-center  rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+                    >
+                      <summary
+                        class=" m-auto mx-auto w-full hover:bg-muted-100 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+                        tabindex="{{ p.id }}"
+                      >
+                        <!--[-->
+
+                        <div
+                          class=" m-auto mx-auto  w-full text-muted-700 dark:text-muted-400 relative z-10 flex items-center gap-1 font-sans text-sm"
+                          data-v-4b4ecc8c=""
+                        >
+                          <button
+                            title="y"
+                            class="text-muted-400 nui-focus me-1 flex h-5 w-5 items-center justify-center rounded"
+                            data-v-4b4ecc8c=""
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              aria-hidden="true"
+                              role="img"
+                              class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-90"
+                              width="1em"
+                              height="1em"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 12h14"
+                              ></path>
+                            </svg>
+                          </button>
+                          <span
+                            class="icon coricon svg-icon svg-icon-2x svg-icon-primary me-1"
+                          >
+                            <svg
+                              width="35"
+                              height="35"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                opacity="0.3"
+                                d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z"
+                                fill="currentColor"
+                              ></path>
+                              <path
+                                d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                          </span>
+                          <!--[-->
+
+                          <div
+                            class=" m-auto mx-auto w-full nui-checkbox opacity-5 nui-checkbox-rounded text-primary-800 me-1"
+                            data-v-4b4ecc8c=""
+                          >
+                            <div class="nui-checkbox-label-wrapper">
+                              <span class="inline group-open:hidden">{{
+                                p.nome
+                              }}</span>
+                              <span class="hidden group-open:inline"
+                                >{{ p.nome }} - Aberto</span
+                              >
+                              <span class="font-smaller group-open:inline">
+                               <!--{{ p.created_at }}-->
+                              </span>
+                            </div>
+                          </div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true"
+                            role="img"
+                            class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-180"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                            data-v-26e5b7b0=""
+                          >
+                            <path
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m6 9l6 6l6-6"
+                            ></path>
+                          </svg>
+                          <!--[-->
+
+                         </div>
+                        <!--]-->
+                      </summary>
+
+
+
+                      <!--]--><!--[-->
+                      <div class="relative">
+                        <div
+                          class="border-muted-300 dark:border-muted-700 absolute top-0 h-full w-[1px] border-l"
+                          style="left: 0.510rem"
+                        ></div>
+
+                        <!--[-->
+                        <ul
+                          class="treeview relative w-full">
+                          <li>
+                            <!--[-->
+                            <div
+                              class="text-muted-400 dark:text-muted-600 relative z-10 flex items-center gap-1 py-2 font-sans text-sm"
+
+                            >
+                              <!--[--><span
+                                class="text-muted-400 flex h-5 w-5 items-center justify-center"
+
+                                ><!----></span
+                              ><!--]--><!--[--><span>empty</span
+                              ><!--]-->
+                            </div>
+                            <!--]-->
+                          </li>
+                        </ul>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </details>
+                    <!--[-->
+                    <div>
+                    <nz-button-group>
+                      <button
+                        title="d"
+                        class="rotate-90 items-center justify-center rounded-full x h-9 w-9 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+                        nz-dropdown
+                        [nzDropdownMenu]="pasta"
+                        nzPlacement="bottomRight"
+                      >
+                        <span nz-icon nzType="more"></span>
+                      </button>
+                    </nz-button-group>
+                    <nz-dropdown-menu
+                      class="z rounded-full"
+                      #pasta="nzDropdownMenu"
+                    >
+                      <ul nz-menu>
+                        <li nz-menu-item (click)="selectedCard(p.id)">Visualizar em detalhes</li>
+                        <li nz-menu-item>Mover</li>
+                        <li nz-menu-item>Renomear</li>
+                        <li nz-menu-item  (click)="showConfirm(p.id)">Eliminar</li>
+                        <li nz-menu-item>
+                          <a  (click)="fileModal()">
+                            <span nz-icon nzType="plus"></span> Add ficheiros
+                          </a>
+                        </li>
+
+                      </ul>
+                    </nz-dropdown-menu>
+                    </div>
+                    <!--[-->
+                  </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      </div>
+  </div>
+
+
+<div>
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Modal"
+    class=""
+    nzOkText="Ok"
+    nzCancelText="Cancel"
+    (nzOnOk)="handleOk()"
+    (nzOnCancel)="handleCancel()"
+  >
+    <ng-container *nzModalContent >
+     <app-pasta-create></app-pasta-create>
+
+    </ng-container>
+  </nz-modal>
+
+
+
+<nz-modal
+  [(nzVisible)]="Visible"
+  nzTitle="Modal"
+  (nzOnOk)="handPOk()"
+  (nzOnCancel)="handPCancel()"
+>
+  <ng-container *nzModalContent>
+    hy
+  </ng-container>
+</nz-modal>
+</div>
+</ng-template>

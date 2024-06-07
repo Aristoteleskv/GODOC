@@ -1,0 +1,521 @@
+<div class="relative z-20 h w-full ">
+  <div class="flex w-full h-full flex-row overflow-x-hidden">
+    <div class="-translate-x-full  h-full ltablet:translate-x-0 lg:translate-x-0 ltablet:static ltablet:py-4 dark:bg-muted-900 ltablet:dark:bg-muted-950 lg:dark:bg-muted-950 fixed start-0 top-0 z-30 flex h-full w-72 shrink-0 flex-col  ps-4 transition-transform duration-300 lg:static lg:py-4">
+      <div class="ltablet:pe-0 flex h-full flex-col pe-2 lg:pe-0">
+           <div class="flex h-20 items-center justify-center pe-1">
+               <button
+                   type="button"
+                   rel
+                   target
+                   class="nui-button nui-button-md nui-button-rounded-full nui-button-solid nui-button-primary w-full"
+               >
+                   <!-- [ -->
+                   <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       aria-hidden="true"
+                       role="img"
+                       class="icon size-4"
+                       width="1em"
+                       height="1em"
+                       viewBox="0 0 24 24"
+                       data-v-b4402e20
+                   >
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M5 12h14m-7-7v14"
+                       ></path>
+                   </svg>
+                   <span>New Conversation</span>
+                   <!-- ] -->
+                   <!--  -->
+               </button>
+           </div>
+           <div class="nui-slimscroll flex h-full flex-col space-y-1 overflow-y-auto pe-2">
+               <!-- [ -->
+
+
+
+
+               <button
+                   *ngFor="let task of tasks" style="background-color: {{task.cor}};"
+
+                   class="hover:bg-muted-100 dark:hover:bg-muted-900 flex items-center gap-2 rounded-xl p-2 transition-colors duration-200 ease-in-out"
+               >
+                   <div class="nui-avatar nui-avatar-sm nui-avatar-rounded-full">
+                       <div class="nui-avatar-inner">
+                           <!-- [ -->
+                           <img
+                               title="b"
+                               src="/img/avatars/14.svg"
+                               class="nui-avatar-rounded-full nui-avatar-img"
+                           >
+                           <!--  -->
+                           <!--  -->
+                           <!-- ] -->
+                       </div>
+                       <!--  -->
+                       <!--  -->
+                   </div>
+                   <span class="nui-text nui-content-sm nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400">
+                       <!-- [ -->
+                       <font [style.text-decoration]="task ? 'line-through strikethrough' : ''"
+                       [class]="task.completed ? 'completed task__title':'completed strikethrough task__title'"
+                       (click)="completeTask(task.id)">{{task.name}}</font>
+                       <!-- ] -->
+                   </span>
+                   <div class="container-status">
+                     <span class="status-task">
+                         {{task.completed ? 'pending': 'completed'}}
+                     </span>
+                     <div class="btns-container">
+                         <button
+                             title="f"
+                             (click)="call(task)"
+                             [attr.data-bs-target]="'#staticBackdrop-'+task.id"
+                             data-bs-toggle="modal"
+                             data-bs-target="#staticBackdrop"
+                             type="button"
+                             class="btn-task btn-update"
+                         >
+                             <i class="ph
+                   ph-pencil-simple-line"></i>
+                         </button>
+                         <button
+                             title="s"
+                             (click)="deleteTask(task.id)"
+                             class="btn-task btn-delete"
+                         >
+                             <i class="ph ph-trash"></i>
+                         </button>
+                     </div>
+                 </div>
+                   <span class="opacity-0 bg-primary-500 me-3 ms-auto block size-2 rounded-full transition-opacity duration-300"></span>
+
+
+                 <a (click)="Updat(task.isVisible)">sss</a>
+
+
+                 <nz-modal
+                 [(nzVisible)]="task.isVisible"
+                 nzTitle="Modal" nzDraggable
+                 [nzFooter]="null"
+                 (nzOnCancel)="handCancel(task)"
+                 (nzOnOk)="handOk(task)">
+                   <ng-container *nzModalContent >
+
+
+
+                               <div
+                                   class="modal fade"
+                                   id="staticBackdrop-{{task.id}}"
+                                   data-bs-backdrop="static"
+                                   data-bs-keyboard="false"
+                                   tabindex="-1"
+                                   [attr.aria-labelledby]="'staticBackdropLabel-'+task.id"
+                                   aria-hidden="true"
+                               >
+                                   <div class="modal-dialog">
+                                       <div class="modal-content">
+                                           <div class="modal-header">
+                                               <h1
+                                                   class="modal-title fs-5"
+                                                   [id]="'staticBackdropLabel-'+task.id"
+                                               >
+                                                   Edit Task
+                                               </h1>
+                                               <button
+                                                   type="button"
+                                                   class="btn-close"
+                                                   data-bs-dismiss="modal"
+                                                   aria-label="Close"
+                                               ></button>
+                                           </div>
+                                           <div class="modal-body">
+                                               <div class="input-group p-4">
+                                                   <input
+                                                       type="text"
+                                                       class="form-control"
+                                                       placeholder="Edit Task Description"
+                                                       [(ngModel)]="editTaskValue"
+                                                   >
+                                                   <input title="r"
+                                                       type="color"
+                                                       class="form-control"
+                                                       [(ngModel)]="editTaskValueCor"
+                                                   >
+                                                   <button
+                                                       type="button"
+                                                       class="btn btn-primary"
+                                                       data-bs-dismiss="modal"
+                                                       (click)="updateTask(task.id, editTaskValue, editTaskValueCor)"
+                                                   >
+                                                       Update
+                                                   </button>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                   </ng-container>
+                   </nz-modal>
+               </button>
+               <!-- ] -->
+           </div>
+           <div class="flex h-20 items-center justify-between gap-3 pe-2">
+               <a
+                   href="/dashboards"
+                   class="text-muted-500 dark:text-muted-400 hover:text-primary-500 border-muted-200 dark:border-muted-800 hover:border-primary-500 flex size-12 items-center justify-center rounded-xl border transition-colors duration-200 dark:hover:border-purple-500 dark:hover:text-purple-500"
+               >
+                   <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       aria-hidden="true"
+                       role="img"
+                       class="icon size-4"
+                       style
+                       width="1em"
+                       height="1em"
+                       viewBox="0 0 512 512"
+                       data-v-b4402e20
+                   >
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="48"
+                           d="M244 400L100 256l144-144M120 256h292"
+                       ></path>
+                   </svg>
+               </a>
+               <button
+                   title="b"
+                   class="flex size-12 items-center justify-center rounded-xl transition-colors duration-200 bg-muted-50 hover:bg-muted-100 dark:bg-muted-900 dark:hover:bg-muted-800 text-muted-500"
+                   data-nui-tooltip="Messaging"
+               >
+                   <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       aria-hidden="true"
+                       role="img"
+                       class="icon size-5"
+                       style
+                       width="1em"
+                       height="1em"
+                       viewBox="0 0 512 512"
+                       data-v-b4402e20
+                   >
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-miterlimit="10"
+                           stroke-width="32"
+                           d="M87.49 380c1.19-4.38-1.44-10.47-3.95-14.86a44.86 44.86 0 0 0-2.54-3.8a199.81 199.81 0 0 1-33-110C47.65 139.09 140.73 48 255.83 48C356.21 48 440 117.54 459.58 209.85a199 199 0 0 1 4.42 41.64c0 112.41-89.49 204.93-204.59 204.93c-18.3 0-43-4.6-56.47-8.37s-26.92-8.77-30.39-10.11a31.09 31.09 0 0 0-11.12-2.07a30.71 30.71 0 0 0-12.09 2.43l-67.83 24.48a16 16 0 0 1-4.67 1.22a9.6 9.6 0 0 1-9.57-9.74a15.85 15.85 0 0 1 .6-3.29Z"
+                       ></path>
+                   </svg>
+               </button>
+               <button
+                   title="b"
+                   class="flex size-12 items-center justify-center rounded-xl transition-colors duration-200 bg-primary-500/10 text-primary-500"
+                   data-nui-tooltip="Calendar"
+               >
+                   <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       aria-hidden="true"
+                       role="img"
+                       class="icon size-5"
+                       style
+                       width="1em"
+                       height="1em"
+                       viewBox="0 0 512 512"
+                       data-v-b4402e20
+                   >
+                       <rect
+                           width="416"
+                           height="384"
+                           x="48"
+                           y="80"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                           rx="48"
+                       ></rect>
+                       <circle
+                           cx="296"
+                           cy="232"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="376"
+                           cy="232"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="296"
+                           cy="312"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="376"
+                           cy="312"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="136"
+                           cy="312"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="216"
+                           cy="312"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="136"
+                           cy="392"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="216"
+                           cy="392"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <circle
+                           cx="296"
+                           cy="392"
+                           r="24"
+                           fill="currentColor"
+                       ></circle>
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                           d="M128 48v32m256-32v32"
+                       ></path>
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                           d="M464 160H48"
+                       ></path>
+                   </svg>
+               </button>
+               <button
+                   title="b"
+                   class="flex size-12 items-center justify-center rounded-xl transition-colors duration-200 bg-muted-50 hover:bg-muted-100 dark:bg-muted-900 dark:hover:bg-muted-800 text-muted-500"
+                   data-nui-tooltip="Preferences"
+               >
+                   <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       aria-hidden="true"
+                       role="img"
+                       class="icon size-5"
+                       style
+                       width="1em"
+                       height="1em"
+                       viewBox="0 0 512 512"
+                       data-v-b4402e20
+                   >
+                       <path
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                           d="M368 128h80m-384 0h240m64 256h80m-384 0h240m-96-128h240m-384 0h80"
+                       ></path>
+                       <circle
+                           cx="336"
+                           cy="128"
+                           r="32"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                       ></circle>
+                       <circle
+                           cx="176"
+                           cy="256"
+                           r="32"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                       ></circle>
+                       <circle
+                           cx="336"
+                           cy="384"
+                           r="32"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="32"
+                       ></circle>
+                   </svg>
+               </button>
+           </div>
+       </div>
+   </div>
+   <div class="dark:bg-muted-950 flex h-full flex-auto flex-col p-2">
+    <nz-badge class="z" [nzCount]="4">
+      <a class=" head-example animate-ping"></a>
+    </nz-badge>
+
+       <div class="bg-muted-100 dark:bg-muted-900 flex h-full flex-auto shrink-0 flex-col overflow-hidden rounded-2xl">
+           <div class="relative flex h-full flex-col">
+               <div class="overflow-y-auto nui-slimscroll relative flex h-full flex-col px-4 pb-24 pt-12">
+                   <!-- [ -->
+
+
+                   <div class="space-y-12">
+                       <div class="flex-row-reverse justify-center relative flex w-full gap-4">
+                           <div>
+                               <div
+                                   class="absolute inset-0 flex items-center"
+                                   aria-hidden="true"
+                               >
+                                   <div class="border-muted-300/50 dark:border-muted-800 w-full border-t"></div>
+                               </div>
+                               <div class="relative flex justify-center">
+                                   <span class="bg-muted-100 dark:bg-muted-900 text-muted-400 px-3 font-sans text-xs uppercase">Yesterday</span>
+                               </div>
+                           </div>
+                       </div>
+                       <!-- ] -->
+                       <div *ngFor="let task of tasks"  class="flex-row-reverse relative flex w-full gap-4">
+                           <!-- [ -->
+                           <div class="shrink-0">
+                               <div class="nui-avatar nui-avatar-xs nui-avatar-rounded-full">
+                                   <div class="nui-avatar-inner">
+                                       <!-- [ -->
+                                       <img
+                                           src="/img/avatars/2.svg"
+                                           class="nui-avatar-rounded-full nui-avatar-img"
+                                       >
+                                       <!--  -->
+                                       <!--  -->
+                                       <!-- ] -->
+                                   </div>
+                                   <!--  -->
+                                   <!--  -->
+                               </div>
+                           </div>
+                           <div class="flex max-w-md flex-col">
+                               <div class="bg-primary-500/20 rounded-se-none text-muted-800 dark:text-muted-200 rounded-xl p-4">
+                                   <p class="font-sans text-sm">sdsds</p>
+                               </div>
+                               <div class="text-muted-400 mt-1 font-sans text-xs">...</div>
+                               <!--  -->
+                           </div>
+                           <!-- ] -->
+                       </div>
+                   </div>
+
+
+
+               </div>
+               <div class="absolute inset-x-0 bottom-4 w-full px-4">
+                   <form
+                       [formGroup]="myForm"
+                       (ngSubmit)="createTask()"
+                       class="dark:bg-muted-950 flex h-16 flex-row items-center gap-2 rounded-xl bg-white px-3"
+                   >
+                       <div class="hidden sm:block">
+                           <input
+                            type="color"
+                               title="f"
+                               required
+                               formControlName="cor"
+                               class="borderedo hover:bg-muted-100 dark:hover:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hidden size-10 items-center justify-center rounded-xl transition-colors duration-200 focus:outline-none sm:flex"
+                           >
+
+                       </div>
+                       <div class="grow ">
+                           <div class="relative w-full grid">
+
+
+
+                               <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded-lg">
+                                   <!--  -->
+                                   <div class="nui-input-outer">
+                                       <div>
+                                           <textarea
+                                               title="s"
+                                               class="nui-input pe-10"
+                                               formControlName="name"
+                                               name="name"
+                                               id
+                                               cols="30"
+                                               rows="10"
+                                           ></textarea>
+                                       </div>
+                                       <!--  -->
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div>
+
+                       </div>
+                       <div>
+                           <button
+                               type="submit"
+                               rel
+                               target
+                               class="nui-button nui-button-md nui-button-rounded-lg nui-button-solid nui-button-primary"
+                           >
+                               <!-- [ -->
+                               <span>Send</span>
+                               <svg
+                                   xmlns="http://www.w3.org/2000/svg"
+                                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                                   aria-hidden="true"
+                                   role="img"
+                                   class="icon !hidden size-5 sm:!block"
+                                   width="1em"
+                                   height="1em"
+                                   viewBox="0 0 256 256"
+                               >
+                                   <g fill="currentColor">
+                                       <path
+                                           d="M227.91 134.86L59.93 231a8 8 0 0 1-11.44-9.67L80 128L48.49 34.72a8 8 0 0 1 11.44-9.67l168 95.85a8 8 0 0 1-.02 13.96"
+                                           opacity=".2"
+                                       ></path>
+                                       <path d="m231.87 114l-168-95.89a16 16 0 0 0-22.95 19.23L71.55 128l-30.63 90.67A16 16 0 0 0 56 240a16.15 16.15 0 0 0 7.93-2.1l167.92-96.05a16 16 0 0 0 .05-27.89ZM56 224a.56.56 0 0 0 0-.12L85.74 136H144a8 8 0 0 0 0-16H85.74L56.06 32.16A.46.46 0 0 0 56 32l168 95.83Z"></path>
+                                   </g>
+                               </svg>
+                               <!-- ] -->
+                               <!--  -->
+                           </button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   </div>
+</div>

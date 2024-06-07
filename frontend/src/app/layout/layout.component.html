@@ -1,0 +1,148 @@
+<ng-container *ngIf="!user; else elseTemplate">
+    <div
+        role="progressbar"
+        aria-valuemax="100"
+        class="nui-progress nui-progress-default nui-progress-warning nui-progress-sm nui-progress-full"
+        title="indeterminate warning progress bar"
+    >
+        <div class="m-auto mx-auto w-full nui-progress-indeterminate animate-nui-progress-indeterminate nui-progress-bar"></div>
+    </div>
+</ng-container>
+<ng-template #elseTemplate>
+    <main>
+        <div class="bg-muted-100 dark:bg-muted-900 pb-20">
+            <!-- begin::Sider -->
+            <div
+                [class]="colorScheme"
+                class="pointer-events-none fixed start-0 top-0 z-[60] flex h-full xl:z-10 "
+            >
+                <app-sidebar [isMenuOpen]="isMenuOpen"></app-sidebar>
+            </div>
+            <!-- The end::Sider -->
+            <div [className]="
+          isMenuOpen
+            ? 'bg-muted-100 dark:bg-muted-900 relative min-h-screen w-full overflow-x-hidden px-4 transition-all duration-300 xl:px-10 xl:max-w-[calc(100%_-_80px)] xl:ms-[80px]'
+            : 'bg-muted-100 dark:bg-muted-900 relative min-h-screen w-full overflow-x-hidden px-4 transition-all duration-300 xl:px-10 xl:max-w-[calc(100%_-_300px)] xl:ms-[300px]'
+        ">
+                <div
+                    class="mx-auto w-full max-w-8xl"
+                    [ngClass]="{ in: isMenuOpen }"
+                >
+                    <!-- begin::Header -->
+
+                    <header class="relative z-[1] mb-5 flex h-16 items-center gap-2">
+                        <button
+                            title="r"
+                            type="button"
+                            class="nui-button text-muted-400 hover:bg-muted-100 hover:text-muted-600 rounded-full transition-colors duration-300 flex items-center justify-center -ms-3"
+                            nz-button
+                            nzType="text"
+                            (click)="toggleMenu()"
+                            nzShape="circle"
+                            nzSize="large"
+                        >
+                            <span
+                                nz-icon
+                                class="nui-input-icon svg-icon svg-icon-1"
+                            >
+                                <svg
+                                    class="icon nui-input-icon-inner"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
+                                        fill="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                    <path
+                                        opacity="0.3"
+                                        d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
+                                        fill="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                </svg>
+                            </span>
+                        </button>
+                        <h1 class="mt-2 nui-button text-muted-400 hover:bg-muted-100 hover:text-muted-600 rounded-full transition-colors duration-300 flex items-center justify-center ">
+                            
+                            <nz-breadcrumb
+                                nz-col
+                                nzFlex="auto"
+                                [nzSeparator]="'·'"
+                                [nzAutoGenerate]="true"
+                                [nzRouteLabel]="'breadcrumb'"
+                                class="nui-breadcrumb nui-heading nui-heading-2xl nui-weight-light nui-lead-normal text-muted-800 hidden dark:text-white md:block"
+                            ></nz-breadcrumb>
+                        </h1>
+                        <div class="ms-auto">
+                            <div class="ltablet:static ltablet:w-auto ltablet:flex ltablet:flex-row dark:bg-muted-950 ltablet:!bg-transparent ltablet:mx-0 fixed inset-x-0 top-20 mx-auto w-[calc(100%_-_2rem)] items-center justify-center bg-white lg:static lg:mx-0 lg:flex lg:w-auto lg:flex-row lg:!bg-transparent hidden">
+                                <app-busca></app-busca>
+
+                                <label
+                                    class="nui-theme-toggle"
+                                    for="theme-button"
+                                >
+                                    <input
+                                        title="Background"
+                                        type="checkbox"
+                                        (click)="toggleColorScheme()"
+                                        class="nui-theme-toggle-input change-theme"
+                                        id="theme-button"
+                                    >
+                                    <span class="nui-theme-toggle-inner">
+                                        <svg
+                                            aria-hidden="true"
+                                            viewBox="0 0 24 24"
+                                            class="nui-sun"
+                                        >
+                                            <g
+                                                fill="currentColor"
+                                                stroke="currentColor"
+                                                class="stroke-2"
+                                            >
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="5"
+                                                ></circle>
+                                                <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                                            </g>
+                                        </svg>
+                                        <svg
+                                            aria-hidden="true"
+                                            viewBox="0 0 24 24"
+                                            class="nui-moon"
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                stroke="currentColor"
+                                                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                                                class="stroke-2"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <app-header></app-header>
+                    </header>
+                    <!-- end::Header -->
+                    <!-- begin::Content -->
+                    <main>
+                        <!-- begin::Container -->
+                        <router-outlet></router-outlet>
+                    </main>
+                    <!-- end::Content -->
+                    <!-- begin::Footer -->
+                </div>
+                <!-- end::Footer -->
+            </div>
+        </div>
+    </main>
+</ng-template>

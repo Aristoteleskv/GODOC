@@ -1,0 +1,11 @@
+<ul class="breadcrumb fw-semibold fs-base my-1">
+  <li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item"
+      [ngClass]="{'text-muted': !breadcrumb.isTextDark, 'text-dark': breadcrumb.isTextDark}">
+    <ng-container *ngIf="breadcrumb.isLink; else textContent">
+      <a [href]="breadcrumb.link" class="text-muted">{{ breadcrumb.label }}</a>
+    </ng-container>
+    <ng-template #textContent>
+      {{ breadcrumb.label }}
+    </ng-template>
+  </li>
+</ul>

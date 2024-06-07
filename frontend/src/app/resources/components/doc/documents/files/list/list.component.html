@@ -1,0 +1,359 @@
+<div class="w-auto w-full align-items-center" *ngIf="!files; else content">
+  <h1>Carregando...</h1>
+  <div role="progressbar" aria-valuemax="100"
+    class=" w-full nui-progress nui-progress-default nui-progress-warning nui-progress-sm nui-progress-full"
+    title="indeterminate warning progress bar">
+    <div class="w-full nui-progress-indeterminate animate-nui-progress-indeterminate nui-progress-bar" style="width: 100%">
+    </div>
+  </div>
+</div>
+<ng-template #content>
+   <div class="pb-6  nui-card nui-card-white nui-card-curved rounded-lg nui-card-shadow-hover   nui-card-shadow  hover:!border-orange-500 border-2   w-full m-auto mx-auto">
+      <div class="p-2 transition-all duration-300 flex flex-col">
+        <nz-table #Table [nzData]="files">
+          <thead>
+            <div class="w-full p-3 flex items-center justify-between">
+              <nz-button-group class="nui-button-group h-45">
+                <button title="d"
+                  class=" nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                  <span class="rotate-50" nz-icon nzType="more"></span>
+                </button>
+
+                <button class="nui-input-wrapper nui-input-md nui-has-icon w-full">
+                  <div class="nui-input-outer">
+                    <input type="search"
+                      class="nui-input !bg-muted-100 dark:!bg-muted-700 rounded-lg border focus:!bg-muted-900 dark:focus:!bg-muted-900"
+                      placeholder="Procurar" id="searchTextFiles" [(ngModel)]="searchTextFiles" />
+                    <div class="nui-input-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" class="icon nui-input-icon-inner" width="1em" height="1em"
+                        viewBox="0 0 24 24" data-v-26e5b7b0="">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2">
+                          <circle cx="11" cy="11" r="8"></circle>
+                          <path d="m21 21l-4.3-4.3"></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </nz-button-group>
+
+
+              <nz-button-group class="nui-button-group">
+                <button title="d"
+                  class=" nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                  <span class="rotate-50" nz-icon nzType="more"></span>
+                </button>
+
+                <button
+                  class="text-muted-400  nui-button nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+                  <span class="icon coricon svg-icon svg-icon-2x svg-icon-default me-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon me-2 size-9" style="" width="1em" height="1em" viewBox="0 0 256 256" data-v-b4402e20=""><g fill="currentColor"><path d="M224 88v112.89a7.11 7.11 0 0 1-7.11 7.11H40a8 8 0 0 1-8-8V64a8 8 0 0 1 8-8h53.33a8 8 0 0 1 4.8 1.6l27.74 20.8a8 8 0 0 0 4.8 1.6H216a8 8 0 0 1 8 8" opacity=".2"></path><path d="M24 80V64a16 16 0 0 1 16-16h53.33a16.12 16.12 0 0 1 9.6 3.2l29.87 22.4a8 8 0 1 1-9.6 12.8L93.33 64H40v16a8 8 0 0 1-16 0m64 120H40v-8a8 8 0 0 0-16 0v8.62A15.4 15.4 0 0 0 39.38 216H88a8 8 0 0 0 0-16m72 0h-32a8 8 0 0 0 0 16h32a8 8 0 0 0 0-16m64-56a8 8 0 0 0-8 8v48h-16a8 8 0 0 0 0 16h16.89A15.13 15.13 0 0 0 232 200.89V152a8 8 0 0 0-8-8m-8-72h-48a8 8 0 0 0 0 16h48v24a8 8 0 0 0 16 0V88a16 16 0 0 0-16-16M32 160a8 8 0 0 0 8-8v-32a8 8 0 0 0-16 0v32a8 8 0 0 0 8 8"></path></g></svg>
+                  </span>
+
+
+
+
+                  Criar Pasta
+                  <span class="icon svg-icon  svg-icon-5 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true" role="img"
+                      class=" text-muted-400 ms-auto block h-4 w-5 transition-transform duration-300 group-focus-within:rotate-180"
+                      width="1em" height="1em" viewBox="0 0 24 24" data-v-26e5b7b0="">
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m6 9l6 6l6-6"></path>
+                    </svg>
+                  </span>
+                </button>
+
+                <button title="editar" (click)="fileModal()"
+                  class="text-muted-400 nui-button nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+                  <span class="icon svg-icon svg-icon-2x svg-icon-primary me-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path opacity="0.3" stroke-linecap="round" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z"
+                        fill="currentColor"></path>
+                      <path stroke-linecap="round"
+                        d="M10.4 3.60001L12 6H21C21.6 6 22 6.4 22 7V19C22 19.6 21.6 20 21 20H3C2.4 20 2 19.6 2 19V4C2 3.4 2.4 3 3 3H9.20001C9.70001 3 10.2 3.20001 10.4 3.60001ZM16 11.6L12.7 8.29999C12.3 7.89999 11.7 7.89999 11.3 8.29999L8 11.6H11V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V11.6H16Z"
+                        fill="currentColor"></path>
+                      <path stroke-linecap="round" opacity="0.3"
+                        d="M11 11.6V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V11.6H11Z" fill="currentColor"></path>
+                    </svg>
+                  </span>
+                  Add Ficheiro
+                </button>
+
+                <button
+                  class="nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 sm:flex nui-breadcrumb-item flex items-center">
+                  <a aria-current="page" routerLink="pastas/lista"
+                    class=" text-muted-400 flex w-full items-center ps-3 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true" role="img" class="icon me-2 h-5 w-5" width="1em" height="1em"
+                      viewBox="0 0 256 256" data-v-26e5b7b0="">
+                      <path fill="currentColor"
+                        d="M80 64a8 8 0 0 1 8-8h128a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm136 56H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16Zm0 64H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16ZM44 52a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Z">
+                      </path>
+                    </svg>
+                    <span class="font-sans text-xs">Lista</span>
+                  </a>
+                </button>
+                <button
+                  class="nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                  <a aria-current="page" routerLink="pastas/bloco"
+                    class=" text-muted-400 flex w-full items-center ps-3 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true" role="img" class="icon h-4 w-4" width="1em" height="1em" viewBox="0 0 256 256"
+                      data-v-26e5b7b0="">
+                      <path fill="currentColor"
+                        d="M76 60a16 16 0 1 1-16-16a16 16 0 0 1 16 16Zm52-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 32a16 16 0 1 0-16-16a16 16 0 0 0 16 16ZM60 112a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16ZM60 180a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Z">
+                      </path>
+                    </svg>
+                    <span class="font-sans text-xs">Grelha</span>
+                  </a>
+                </button>
+                <button title="d"
+                  class=" nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                  <span class="rotate-50" nz-icon nzType="more"></span>
+                </button>
+
+              </nz-button-group>
+
+            </div>
+            <tr
+              class="w-full p-2 nui-focus hover:bg-muted-100 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+              <td>
+                <div class="checkboxes__item">
+                  <label class="checkbox style-c">
+                    <input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()" />
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body">Marcar</div>
+                  </label>
+                </div>
+              </td>
+              <td>
+                <ul class="text-muted-500 hover:text-primary-500 flex items-center gap-2 nui-breadcrumb-list">
+                  <li class="">
+                    <a class="text-muted-400 flex w-full items-center ps-3 transition-colors duration-300">
+                      <!----><span class="font-sans text-xs">
+                        Modo de Ver :
+                      </span>
+                    </a>
+                  </li>
+                  <li class="sm:flex nui-breadcrumb-item flex items-center">
+                    <a aria-current="page"
+                      class="text-muted-400 flex w-full items-center ps-3 transition-colors duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" class="icon me-2 h-5 w-5" width="1em" height="1em"
+                        viewBox="0 0 256 256" data-v-26e5b7b0="">
+                        <path fill="currentColor"
+                          d="M80 64a8 8 0 0 1 8-8h128a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm136 56H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16Zm0 64H88a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16ZM44 52a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Zm0 64a12 12 0 1 0 12 12a12 12 0 0 0-12-12Z">
+                        </path>
+                      </svg>
+                      <span class="font-sans text-xs">Lista</span>
+                    </a>
+                  </li>
+                  <li class="nui-breadcrumb-item">
+                    <div class="nui-item-inner">
+                      <span class="nui-item-text"><!--[-->·<!--]--></span>
+                    </div>
+                  </li>
+                  <li class="sm:flex nui-breadcrumb-item flex items-center">
+                    <a aria-current="page" routerLink="bloco"
+                      class="text-muted-400 flex w-full items-center ps-3 transition-colors duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" class="icon h-4 w-4" width="1em" height="1em"
+                        viewBox="0 0 256 256" data-v-26e5b7b0="">
+                        <path fill="currentColor"
+                          d="M76 60a16 16 0 1 1-16-16a16 16 0 0 1 16 16Zm52-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 32a16 16 0 1 0-16-16a16 16 0 0 0 16 16ZM60 112a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16ZM60 180a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm68 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16Z">
+                        </path>
+                      </svg>
+                      <span class="font-sans text-xs">Grelha</span>
+                    </a>
+                  </li>
+                </ul>
+              </td>
+
+            </tr>
+          </thead>
+          <tbody class="overflow-y-auto nui-slimscroll w-full p-13 ml-5 sm:p-8">
+
+            <tr *ngFor="let file of files | search: searchTextFiles; let i = index"
+              class="w-full mt-4 inline-flex nui-focus hover:bg-muted-100 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+              <div class="transition-all duration-100 ml-5">
+                <div class="checkboxes__item ">
+                  <label class="checkbox style-c">
+                    <input title="f" type="checkbox" [id]="file.id" [(ngModel)]="files[i].selected"
+                      [checked]="selectAll" />
+                    <div class="checkbox__checkmark hover:bg-muted-100 dark:hover:bg-muted-700/70 "></div>
+                  </label>
+                </div>
+              </div>
+
+              <div
+                class="w-full p-1 nui-focus hover:bg-muted-100 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+                <!--[-->
+                <div
+                  class="w-full text-muted-700 dark:text-muted-400 relative z-10 flex items-center gap-1 font-sans text-sm">
+                  <button title="y"
+                    class="text-muted-400 nui-focus me-1 flex h-5 w-5 items-center justify-center rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true" role="img"
+                      class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-90"
+                      width="1em" height="1em" viewBox="0 0 24 24">
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="M5 12h14"></path>
+                    </svg>
+                  </button>
+                  <span class="icon text-muted-400 transition-transform duration-200 svg-icon svg-icon-2x  me-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon me-2 size-8" width="1em" height="1em" viewBox="0 0 256 256" data-v-b4402e20=""><g fill="currentColor"><path d="M216 136c-8 24-56 72-80 80v-32a48 48 0 0 1 48-48Z" opacity=".2"></path><path d="M168 32H88a56.06 56.06 0 0 0-56 56v80a56.06 56.06 0 0 0 56 56h48a8.07 8.07 0 0 0 2.53-.41c26.23-8.75 76.31-58.83 85.06-85.06A8.07 8.07 0 0 0 224 136V88a56.06 56.06 0 0 0-56-56M48 168V88a40 40 0 0 1 40-40h80a40 40 0 0 1 40 40v40h-24a56.06 56.06 0 0 0-56 56v24H88a40 40 0 0 1-40-40m96 35.14V184a40 40 0 0 1 40-40h19.14C191 163.5 163.5 191 144 203.14"></path></g></svg>
+                  </span>
+                  <!--[-->
+
+                  <div
+                    class="flex w-full flex-col sm:flex-row sm:items-center nui-checkbox opacity-5 nui-checkbox-rounded text-primary-800 me-1">
+                    <div class=" nui-checkbox-label-wrapper">
+                      <span class="inline group-open:hidden">
+                        {{ file.file_name | slice:0:16 }}{{ file.file_name.length > 20 ? "..." : "" }}
+                      </span>
+                      <span class="hidden group-open:inline">
+                        {{ file.file_name.substring(0, 18)}} - Aberto
+                      </span>
+                    </div>
+                    <img nz-image [nzSrc]="URI+file.filename"
+                    class="max-w-xs mx-auto w-10 object-cover dark:border-transparent"
+                    alt=""
+                  /><img nz-image src="{{file.url}}"
+                  class="max-w-xs mx-auto w-10 object-cover dark:border-transparent"
+                  alt=""
+                />
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                      <!--[-->
+                      <div
+                        class="relative flex h-8 items-center justify-end px-4 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
+                        <span class="text-muted-500 dark:text-muted-400 font-sans text-sm">{{ file.type
+                          }}</span><!--]-->
+                      </div>
+                      <div
+                        class="relative flex h-8 items-center justify-end px-4 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-16">
+                        <span class="nui-tag nui-tag-sm nui-tag-pastel nui-tag-success nui-tag-full capitalize">
+                          {{ formatBytes(file.size, 0) }}
+                        </span>
+                      </div>
+                      <div
+                        class="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
+                        <span class="text-muted-500 dark:text-muted-400 font-sans text-sm">
+                          {{ file.created_at.substring(0, 15)}}{{ file.created_at.length > 15 ? "..." : "" }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img"
+                    class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-180"
+                    width="1em" height="1em" viewBox="0 0 24 24" data-v-26e5b7b0="">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="m6 9l6 6l6-6"></path>
+                  </svg>
+
+                  <!--[-->
+
+                  <nz-button-group>
+                    <button title="d"
+                      class="rotate-90 items-center justify-center rounded-full x h-9 w-9 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+                      nz-dropdown [nzDropdownMenu]="pasta" nzPlacement="bottomRight">
+                      <span nz-icon nzType="more"></span>
+                    </button>
+                  </nz-button-group>
+                  <nz-dropdown-menu class="z rounded-full" #pasta="nzDropdownMenu">
+                    <ul nz-menu>
+                      <li nz-menu-item>
+                        <a (click)="selectedCard(file.id)" data-id="{{ file.id }}" data-name="{{ file.file_name }}"
+                          data-type="{{ file.type }}">
+
+                          Visualizar em detalhes
+                        </a>
+                      </li>
+                      <li nz-menu-item (click)="moveFile(file)">Mover</li>
+                      <li nz-menu-item>Renomear</li>
+                      <li nz-menu-item (click)="showConfirm(file.id)">
+                        Eliminar
+                      </li>
+                      <li nz-menu-item (click)="viewFile(file)">
+                        Share
+                      </li>
+                      <li nz-menu-item (click)="shareViaLink(file.id)">
+                        Share via link
+                      </li>
+                      <li nz-menu-item (click)="shareViaLink(file.id)">
+                        Share via email
+                      </li>
+                      <li nz-menu-item>
+                        <a (click)="filePModal(file.id)">
+                          <span nz-icon nzType="plus"></span> Add ficheiros
+                        </a>
+                      </li>
+                      <li nz-menu-item (click)="download(file.id)">Download</li>
+                    </ul>
+                  </nz-dropdown-menu>
+                </div>
+                <!--]-->
+              </div>
+
+
+              <nz-modal [(nzVisible)]="file.isVisible" nzTitle="Share-file" nzDraggable [nzFooter]="null"
+                (nzOnOk)="viewFileOk(file)" (nzOnCancel)="viewFileCancel(file)" [id]="'viewFileModal' + i">
+                <ng-container *nzModalContent>
+
+                  <div class="col-sm-12 card-body">
+                    {{ file.file_name }}
+                    <p>{{ file.type }}</p>
+                    <p>{{ formatBytes(file.size,0) }}</p>
+
+                    <span *ngIf="file.type == 'application/pdf'">
+                      <img nz-image width="55" title="dd" rel="2" nzSrc="assets/img/icons/files/pdf.svg" />
+                    </span>
+                    <span *ngIf=" file.type == 'image/png'">
+                      <img width="55" title="dd" rel="2" nz-image nzSrc="assets/img/icons/files/ai.svg" />
+                    </span>
+                    <span *ngIf="
+                      file.type ==
+                      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                    ">
+                      <img width="55" title="dd" rel="2" nz-image nzSrc="assets/img/icons/files/doc-2.svg" />
+                    </span>
+                  </div>
+                  <app-share-file [fileId]="file.id"></app-share-file>
+                </ng-container>
+              </nz-modal>
+
+              <nz-modal [(nzVisible)]="file.isMoveVisible" nzTitle="mover File" nzDraggable [nzFooter]="null"
+              (nzOnOk)="moveFileOk(file)" (nzOnCancel)="moveFileCancel(file)" [id]="'moveFileModal' + i">
+              <ng-container *nzModalContent>
+
+                <div class="col-sm-12 card-body">
+
+                  <h4 class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal text-muted-900 dark:text-white">
+                    Layout selection *{{ file.file_name }}
+                  </h4>
+                  <p class="nui-paragraph nui-paragraph-sm nui-weight-normal nui-lead-normal text-muted-400">
+                    Select the layout you want to use for your application
+                    {{ file.type }} - {{ formatBytes(file.size,0) }}
+                  </p>
+
+                </div>
+                <app-file-move [fileId]="file.id" [fileName]="file.file_name"></app-file-move>
+              </ng-container>
+            </nz-modal>
+
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+  <nz-modal [(nzVisible)]="isisible" nzTitle="Modal" (nzOnCancel)="handCancel()" (nzOnOk)="handPOk()"
+    (nzOnCancel)="handPCancel()">
+    <ng-container *nzModalContent>
+      <file-uploader></file-uploader>
+    </ng-container>
+  </nz-modal>
+</ng-template>

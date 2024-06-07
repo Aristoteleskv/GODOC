@@ -1,0 +1,75 @@
+
+{{pasTanome}}
+<div *ngFor="let progressInfo of progressInfos" class="mb-2">
+
+  <div class="w-full grow space-y-1 sm:w-auto sm:max-w-[260px]">
+    <div class="flex items-center justify-between">
+      <h4 class="text-muted-700 dark:text-muted-100 font-sans text-sm font-medium"> Progress <span>{{ progressInfo.fileName }}</span></h4>
+    <div>
+      <span class="text-muted-400 font-sans text-sm">{{ progressInfo.value }}% </span>
+    </div>
+  </div>
+  <div role="progressbar" aria-valuenow="0" aria-valuemax="100" class="nui-progress nui-progress-default nui-progress-success nui-progress-xs nui-progress-full">
+    <div
+       attr.aria-valuenow="{{ progressInfo.value }}"
+    class="nui-progress-bar" [ngStyle]="{ width: progressInfo.value + '%' }"></div>
+  </div>
+</div>
+<nz-progress [nzPercent]="progressInfo.value" [nzStrokeColor]="{ '0%': '#108ee9', '100%': '#87d068' }"></nz-progress>
+    
+</div>
+
+
+
+<div class="nui-avatar nui-avatar-lg nui-avatar-full" *ngFor="let preview of previews" >
+&nbsp;
+  <div class=" border-muted-200 text-muted-400 after:border-muted-300 dark:border-muted-600 dark:bg-muted-700 dark:after:border-muted-600 flex items-center justify-center border bg-white shadow-lg nui-avatar-inner"><!--[-->
+    <img  title="d" nz-image [nzSrc]="preview" class="preview flex inline-flex nui-avatar-img"><!----><!----><!--]-->
+  </div><!----><!---->
+</div>
+
+<div class="flex flex-lg-row row">
+  <div class="col-8">
+    <label class="btn btn-default p-0">
+      <input title="d"
+      nz-input
+        type="file"
+        accept="image/*"
+        multiple
+        (change)="selectFiles($event)"
+      />
+    </label>
+  </div>
+  <div class="col-4">
+    <button type="button"
+      nz-button
+      class="nui-button-action nui-button-primary nui-button-rounded btn btn-success btn-sm"
+      [disabled]="!selectedFiles"
+      (click)="uploadFiles()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon h-3 w-3" width="1em" height="1em" viewBox="0 0 24 24" data-v-26e5b7b0=""><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
+      Upload
+    </button>
+  </div>
+</div>
+
+ <div *ngIf="message.length" class="alert alert-secondary my-3" role="alert">
+  <ul *ngFor="let msg of message; let i = index">
+    <li>{{ msg }}</li>
+  </ul>
+</div>
+
+<div class="card mt-3">
+  <div class="card-header">List of Images</div>
+  <ul class="list-group list-group-flush">
+    <li *ngFor="let image of imageInfos | async" class="list-group-item">
+      <p><a href="{{ image.url }}">{{ image.file_name }}</a></p>
+      <img src="{{ image.url }}" alt="{{ image.file_name }}" height="80px" />
+    </li>
+  </ul>
+</div>
+<div class="white mt-4 inset-x-0 bottom-8 flex items-center justify-center px-6">
+  <div role="progressbar" aria-valuemax="100" class="nui-progress nui-progress-info nui-progress-warning nui-progress-xs nui-progress-full" inderterminate="">
+  <div class="nui-progress-indeterminate animate-nui-progress-indeterminate nui-progress-bar" style="width: 100%"></div>
+</div>
+</div>

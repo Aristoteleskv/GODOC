@@ -1,0 +1,246 @@
+
+<section class="container">
+  <div
+    class="mb-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row"
+  >
+    <div class="flex w-full items-center gap-4 sm:w-auto">
+      <!--[-->
+      <div
+        class="nui-input-wrapper nui-input-default nui-input-md nui-input-full nui-has-icon w-full sm:w-auto"
+      >
+        <!---->
+        <div class="nui-input-outer">
+          <div>
+            <input
+              id="ninja-input-1903"
+              type="text"
+              class="nui-input"
+              placeholder="Filter users..."
+              value=""
+            /><!----><!---->
+            <div class="nui-input-icon">
+              <!--[--><svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon nui-input-icon-inner"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-26e5b7b0=""
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21l-4.3-4.3"></path>
+                </g></svg
+              ><!--]-->
+            </div>
+            <!--[--><!--]-->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="flex w-full items-center justify-end gap-4 sm:w-auto">
+      <!--[--><button
+        type="button"
+
+        routerLink="add"
+        rel=""
+        target=""
+        class="nui-button nui-button-medium nui-button-full nui-button-solid nui-button-default w-full sm:w-32"
+      >
+        <!--[-->Manage<!--]--><!----></button
+      ><button
+        type="button"
+        rel=""
+        target=""
+        [routerLink]="['acs/users/add']"
+        class="nui-button nui-button-medium nui-button-full nui-button-solid nui-button-primary w-full sm:w-32"
+      >
+        <!--[--><svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="icon h-4 w-4"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          data-v-26e5b7b0=""
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14m-7-7v14"
+          ></path></svg
+        ><span>Add User</span
+        ><!--]--><!----></button
+      ><!--]-->
+    </div>
+  </div>
+  <!--[-->
+    <div class="overflow-x-auto nui-slimscroll rounded-md border-muted-200 dark:border-muted-700 border">
+      <!--[-->
+      <table  class="divide-muted-200 dark:divide-muted-700 min-w-full table-fixed divide-y">
+
+        <tbody class="divide-muted-200 dark:divide-muted-700 dark:bg-muted-800 divide-y bgc-white">
+          <tr class="nui-card hover:bg-muted-50 dark:hover:bg-muted-900 transition-colors duration-300"  *ngFor="let user of users">
+            <th class="p-2">
+              <div class="nui-avatar nui-avatar-md nui-avatar-full bg-primary-500/20 text-primary-500">
+              <div class="nui-avatar-inner">
+                <!--[--><img title="f"
+                        src="assets/img/avatars/13.svg"
+                  class="nui-avatar-img"
+                /><!----><!----><!--]-->
+              </div>
+            </div>
+            </th>
+            <td>
+              <h4 class="nui-heading nui-heading-sm nui-weight-medium nui-lead-tight text-muted-700 dark:text-muted-100">
+              <!--[--><span>{{ user.full_name }}</span><!--]-->
+              </h4>
+              <p class="nui-paragraph nui-paragraph-xs nui-weight-normal nui-lead-tight text-muted-500 dark:text-muted-400">
+                <!--[--><span>{{ user.username }}</span><!--]-->
+              </p>
+            </td>
+            <td>
+              <div class="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
+                <span class="sm:hidden text-muted-400 absolute start-8 top-1/2 mx-auto -translate-y-1/2 text-center font-sans text-xs font-medium uppercase sm:inset-x-0 sm:-top-10 sm:translate-y-0">
+                  Email
+                </span>
+                  <!--[-->
+                <span class="text-muted-500 dark:text-muted-400 font-sans text-sm">
+                  {{ user.email }}
+                </span>
+                  <!--]-->
+              </div>
+            </td>
+            <td>
+              <div class="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-16">
+                <span class="sm:hidden text-muted-400 absolute start-8 top-1/2 mx-auto -translate-y-1/2 text-center font-sans text-xs font-medium uppercase sm:inset-x-0 sm:-top-10 sm:translate-y-0">
+                  Permissoes
+                </span>
+                <!--[-->
+                <span class="nui-tag nui-tag-sm nui-tag-pastel nui-tag-info nui-tag-full capitalize">
+                  <!--[-->{{ user.role }}<!--]-->
+                </span>
+                  <!--]-->
+              </div>
+            </td>
+            <td>
+              <div class="actions">
+                <a
+
+                    (click)="edit(user.user_id)"
+                  >
+                 EDIT</a>
+                <a
+                  ><i
+                    class="fa fa-times"
+                    aria-hidden="true"
+                    (click)="remove(user.user_id)"
+                    *ngIf="permissions?.includes('delete_users')"
+                  ></i
+                >remove</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--]-->
+    </div>
+    <div class="mt-4">
+      <div class="nui-pagination nui-pagination-full">
+        <ul class="nui-pagination-list nui-pagination-full">
+          <!--[--><!--]-->
+          <li>
+            <a
+              aria-current="page"
+              href="flex-list-2.html"
+              class="router-link-active router-link-exact-active nui-pagination-link nui-active nui-pagination-full"
+              tabindex="0"
+            >
+              1
+            </a>
+          </li>
+          <!----><!--[--><!--]--><!---->
+          <li>
+            <a
+              aria-current="page"
+              href="flex-list-24658.html?page=2"
+              class="router-link-active router-link-exact-active nui-pagination-link nui-pagination-full"
+              tabindex="0"
+              >2</a
+            >
+          </li>
+          <!--[--><!--]-->
+        </ul>
+        <div class="nui-pagination-buttons nui-pagination-full">
+          <!--[--><!--]--><a
+            aria-current="page"
+            href="flex-list-2.html"
+            class="router-link-active router-link-exact-active nui-pagination-button"
+            tabindex="0"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon pagination-button-icon"
+              style=""
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              data-v-26e5b7b0=""
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m15 18l-6-6l6-6"
+              ></path></svg></a
+          ><a
+            aria-current="page"
+            href="flex-list-24658.html?page=2"
+            class="router-link-active router-link-exact-active nui-pagination-button"
+            tabindex="0"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon pagination-button-icon"
+              style=""
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              data-v-26e5b7b0=""
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m9 18l6-6l-6-6"
+              ></path></svg></a
+          ><!--[--><!--]-->
+        </div>
+      </div>
+    </div>
+</section>

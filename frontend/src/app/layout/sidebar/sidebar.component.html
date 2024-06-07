@@ -1,0 +1,169 @@
+<section class=" flex h-full xl:z-10 aside aside-extended"  >
+  <div [className]="isMenuOpen ? 'border-muted-200 dark:border-muted-700 dark:bg-muted-800 pointer-events-auto relative z-20 flex h-full w-[80px] flex-col border-r bg-white transition-all duration-300 -translate-x-full rtl:translate-x-full xl:translate-x-0 rtl:xl:-translate-x-0' : ' d-flex flex-column align-items-lg-center flex-row-auto border-muted-200 dark:border-muted-700 dark:bg-muted-800 pointer-events-auto relative z-20 flex h-full w-[80px] flex-col border-r bg-white transition-all duration-300'">
+    <!--[-->
+
+    <div class="flex h-18 w-full items-center justify-center" >
+
+      <ng-container *ngIf="modulo !==0; else elseTemplate">
+          <!--[-->
+          <a class="block items-center justify-center mt-6">
+            <img nz-image  nzSrcset="{{modulo.img}}"
+            class="max-w-xs mx-auto w-10 object-cover dark:border-transparent"
+            alt=""
+          />
+        <p class="text-center">{{modulo.sigla}}</p>
+        </a>
+        <!--]-->
+      </ng-container>
+      <ng-template #elseTemplate>
+        <a  class="flex items-center justify-center">
+          <img nz-image
+          nzSrcset="assets/img/logos/sa2.png"
+          class="max-w-xs mx-auto w-15 object-cover dark:border-transparent"
+          alt=""
+        /> </a>
+      </ng-template>
+
+    </div>
+    <!--]-->
+      <div class="flex h-16 w-full items-center justify-center">
+        <button
+          title="c"
+        (click)="toggleMenu()"
+          type="button"
+          class="text-muted-400 flex h-12 w-12 items-center justify-center rounded-2xl transition-colors duration-300"
+          data-nui-tooltip-position="right"
+          data-nui-tooltip="Documentation"
+        >
+          <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            role="img"
+            class="icon w-5 h-5"
+            width="1em"
+            height="1em"
+            viewBox="0 0 256 256"
+            data-v-26e5b7b0="">
+            <g fill="currentColor">
+              <path
+                d="M208 56v144a8 8 0 0 1-8 8H56a8 8 0 0 1-8-8V56a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8Z"
+                opacity=".2"
+              ></path>
+              <path
+                d="M200 40H56a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 80h-64V56h64Zm-80-64v64H56V56Zm-64 80h64v64H56Zm144 64h-64v-64h64v64Z">
+            </path>
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <!--]-->
+    <div class="mt-auto">
+      <!--[-->
+
+       <div class="flex h-16 w-full items-center justify-center">
+        <span></span
+        ><a
+          class="text-muted-400 flex h-12 w-12 items-center justify-center rounded-2xl transition-colors duration-300"
+          data-nui-tooltip-position="right"
+          data-nui-tooltip="Settings"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            role="img"
+            class="icon w-5 h-5"
+            width="1em"
+            height="1em"
+            viewBox="0 0 256 256"
+            data-v-26e5b7b0=""
+          >
+            <g fill="currentColor">
+              <path
+                d="m230.1 108.76l-31.85-18.14c-.64-1.16-1.31-2.29-2-3.41l-.12-36A104.61 104.61 0 0 0 162 32l-32 17.89h-4L94 32a104.58 104.58 0 0 0-34.11 19.25l-.16 36c-.7 1.12-1.37 2.26-2 3.41l-31.84 18.1a99.15 99.15 0 0 0 0 38.46l31.85 18.14c.64 1.16 1.31 2.29 2 3.41l.12 36A104.61 104.61 0 0 0 94 224l32-17.87h4L162 224a104.58 104.58 0 0 0 34.08-19.25l.16-36c.7-1.12 1.37-2.26 2-3.41l31.84-18.1a99.15 99.15 0 0 0 .02-38.48ZM128 168a40 40 0 1 1 40-40a40 40 0 0 1-40 40Z"
+                opacity=".2"
+              ></path>
+              <path
+                d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm109.94-52.79a8 8 0 0 0-3.89-5.4l-29.83-17l-.12-33.62a8 8 0 0 0-2.83-6.08a111.91 111.91 0 0 0-36.72-20.67a8 8 0 0 0-6.46.59L128 41.85L97.88 25a8 8 0 0 0-6.47-.6a111.92 111.92 0 0 0-36.68 20.75a8 8 0 0 0-2.83 6.07l-.15 33.65l-29.83 17a8 8 0 0 0-3.89 5.4a106.47 106.47 0 0 0 0 41.56a8 8 0 0 0 3.89 5.4l29.83 17l.12 33.63a8 8 0 0 0 2.83 6.08a111.91 111.91 0 0 0 36.72 20.67a8 8 0 0 0 6.46-.59L128 214.15L158.12 231a7.91 7.91 0 0 0 3.9 1a8.09 8.09 0 0 0 2.57-.42a112.1 112.1 0 0 0 36.68-20.73a8 8 0 0 0 2.83-6.07l.15-33.65l29.83-17a8 8 0 0 0 3.89-5.4a106.47 106.47 0 0 0-.03-41.52Zm-15 34.91l-28.57 16.25a8 8 0 0 0-3 3c-.58 1-1.19 2.06-1.81 3.06a7.94 7.94 0 0 0-1.22 4.21l-.15 32.25a95.89 95.89 0 0 1-25.37 14.3L134 199.13a8 8 0 0 0-3.91-1h-3.83a8.1 8.1 0 0 0-4.1 1l-28.84 16.1A96 96 0 0 1 67.88 201l-.11-32.2a8 8 0 0 0-1.22-4.22c-.62-1-1.23-2-1.8-3.06a8.09 8.09 0 0 0-3-3.06l-28.6-16.29a90.49 90.49 0 0 1 0-28.26l28.52-16.28a8 8 0 0 0 3-3c.58-1 1.19-2.06 1.81-3.06a7.94 7.94 0 0 0 1.22-4.21l.15-32.25a95.89 95.89 0 0 1 25.37-14.3L122 56.87a8 8 0 0 0 4.1 1h3.64a8 8 0 0 0 4.1-1l28.84-16.1A96 96 0 0 1 188.12 55l.11 32.2a8 8 0 0 0 1.22 4.22c.62 1 1.23 2 1.8 3.06a8.09 8.09 0 0 0 3 3.06l28.6 16.29a90.49 90.49 0 0 1 .05 28.29Z"
+              ></path>
+            </g></svg>
+          </a>
+      </div>
+     <!--]-->
+    </div>
+  </div>
+
+  <div [className]="isMenuOpen ? 'border-muted-200 dark:border-muted-700 dark:bg-muted-800 pointer-events-auto relative z-10 h-full w-[220px] border-r transition-all  bg-white duration-300 rtl:translate-x-[calc(100%_+_80px)] translate-x-[calc(-100%_-_80px)]' : 'border-muted-200 dark:border-muted-700 dark:bg-muted-800 pointer-events-auto relative z-10 h-full w-[220px] border-r transition-all duration-300  bg-white d-flex flex-row-fluid' ">
+    <div class="flex h-screen flex-col">
+      <!--[-->
+      <div class="flex h-16 w-full items-center px-6">
+        <span
+          class="font-heading fw-normal text-muted-700 text-lg font-light capitalize dark:text-white"
+        >
+         <a routerLink="/"> Dashboard</a>
+        </span>
+        <button
+          title="gh"
+          type="button"
+          size="large"
+          (click)="toggleMenu()"
+          class="nui-button text-muted-400 hover:bg-muted-100 hover:text-muted-600 ms-auto items-center justify-center rounded-full transition-colors duration-300 xl:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            role="img"
+            class="icon h-9 w-9"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m15 18l-6-6l6-6"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!--]-->
+      <div class="nui-slimscroll relative h-full w-full overflow-y-auto">
+        <div class="px-6 pb-8">
+          <ul>
+            <span [ngSwitch]="modulo.id">
+              <p *ngSwitchCase=1>
+                <app-sidebar-gabinet></app-sidebar-gabinet>
+              </p>
+              <p *ngSwitchCase=2>
+                <app-sidebar-gabinet></app-sidebar-gabinet>
+              </p>
+
+              <p *ngSwitchDefault>
+              <app-sidebar-configuracao></app-sidebar-configuracao>
+            </p>
+            </span>
+            <li
+              class="border-muted-200 dark:border-muted-700 my-3 h-px w-full border-t"
+            ></li>
+            <!--]-->
+            <app-sidebar-configuracao></app-sidebar-configuracao>
+
+            <!--]--><!--]-->
+          </ul>
+          <!--]-->
+
+        </div>
+
+        <div
+          class="dark:from-muted-800 pointer-events-none fixed bottom-0 z-10 h-10 w-[212px] bg-gradient-to-t from-white to-transparent"
+        >
+
+      </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+

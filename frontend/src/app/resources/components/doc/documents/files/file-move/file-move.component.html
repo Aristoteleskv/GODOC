@@ -1,0 +1,50 @@
+ {{fileId}} - {{fileName}}
+  <div class="bg-muted-100 dark:bg-muted-700/40 gap-4 rounded-xl p-4">
+  <div class="nui-slimscroll max-h-[550px] overflow-y-auto w-auto full-width">
+
+       <div class="pt-3  w-auto full-width">
+        <!--begin::Input group-->
+        <div class="full-width" *ngFor="let p of pasta; let i = index">
+          <!--begin::Item-->
+          <div class="flex items-center">
+            <!--begin::Checkbox-->
+            <div class="flex items-center gap-6 nui-check-animated nui-check-animated-circle form-check-solid">
+              <!--begin::Input-->
+              <div class="nui-radio-outer">
+                <input class="nui-radio-input me-3" name="move_to_folder" [id]="p.id" [(ngModel)]="pasta[i].selected"   type="radio" value="{{p.id}}" id="{{p.id}}">
+              </div>
+              <!--end::Input-->
+              <!--begin::Label-->
+              <label class="form-check-label" for="{{p.id}}">
+                <div class="flex items-center gap-6 fw-bold">
+                <!--begin::Svg Icon | path: icons/duotune/files/fil012.svg-->
+
+                <span class="icon coricon svg-icon svg-icon-2 svg-icon-primary me-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.3" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z" fill="currentColor"></path>
+                    <path d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+                <!--end::Svg Icon-->
+                <span>{{p.nome }}</span>
+              </div>
+              </label>
+              <!--end::Label-->
+            </div>
+            <!--end::Checkbox-->
+          </div>
+          <!--end::Item-->
+          <nz-divider class="w-auto full-width"></nz-divider>
+        </div>
+<!--begin::Action buttons-->
+        <div class="flex flex-center mt-12">
+          <!--begin::Button-->
+          <button nz-button type="button" class="nui-btn button" id="modal_move_to_folder_submit">
+            <span class="indicator-label">Save</span>
+          </button>
+          <!--end::Button-->
+        </div>
+        <!--begin::Action buttons-->
+      </div>
+</div>
+</div>

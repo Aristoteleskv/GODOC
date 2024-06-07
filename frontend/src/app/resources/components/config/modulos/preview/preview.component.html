@@ -1,0 +1,282 @@
+<p>preview works!</p>
+<ul  *ngFor="let m of modulos">
+  <li><a>{{m.id}} - {{m.nome}} - {{m.sigla}} :</a><a>#</a></li>
+</ul>
+<div class="flex items-center justify-center py-8" *ngIf="!loading">
+  <div class="mx-auto w-full max-w-4xl">
+    <div class="nui-card nui-card-rounded nui-card-white">
+      <!--[-->
+      <div
+        class="divide-muted-200 dark:divide-muted-700 grid divide-y sm:grid-cols-2 sm:divide-x sm:divide-y-0"
+      >
+        <div class="flex flex-col p-8">
+          <div class="nui-avatar nui-avatar-xl mx-auto">
+            <div class="nui-avatar-inner">
+              <img title="{{modulos.sigla}}"
+                src="{{modulos.img}}"
+                class="nui-avatar-img"
+              /><!----><!----><!--]-->
+            </div>
+            <div class="nui-avatar-badge">
+              <img title="{{modulos.sigla}}"
+              src="{{modulos.img}}"
+                class="nui-badge-img"
+                alt=""
+              /><!--]-->
+            </div>
+            <!---->
+          </div>
+          <div class="mx-auto mb-4 max-w-xs text-center">
+            <h2 class="nui-heading  text-muted-800 nui-heading-md nui-weight-medium nui-lead-normal mt-4">
+             {{modulos.nome}}
+              <p class="text-primary-500">
+                {{modulos.sigla}}
+              </p>
+             
+            </h2>
+          </div>
+          <div class="mx-auto max-w-sm">
+            <div
+              class="nui-card nui-card-rounded nui-card-white nui-card-shadow p-6"
+            >
+              <!--[-->
+              <h3
+                class="nui-heading nui-heading-xs nui-weight-medium nui-lead-normal text-muted-400 mb-2 !text-[0.65rem] uppercase"
+              >
+                <!--[-->
+                Message do sistema
+                <!--]-->
+              </h3>
+              <p
+                class="nui-paragraph nui-paragraph-xs nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400"
+              >
+                <!--[-->
+                {{modulos.descricao}}
+                <!--]-->
+              </p>
+              <!--]-->
+            </div>
+            <div class="mt-6 flex items-center justify-center gap-3">
+              <div
+                class="nui-avatar nui-avatar-xs nui-avatar-full"
+                data-nui-tooltip="Melany L."
+              >
+                <div class="nui-avatar-inner">
+                  <!--[--><img
+                    src="../img/avatars/25.svg"
+                    class="nui-avatar-img"
+                  /><!----><!----><!--]-->
+                </div>
+                <!----><!---->
+              </div>
+              <div
+                class="nui-avatar nui-avatar-xs nui-avatar-full bg-lime-500/20 text-lime-500"
+                data-nui-tooltip="Oliver D."
+              >
+                <div class="nui-avatar-inner">
+                  <!--[--><!----><!----><span class="nui-avatar-text">OD</span
+                  ><!--]-->
+                </div>
+                <!----><!---->
+              </div>
+              <div
+                class="nui-avatar nui-avatar-xs nui-avatar-full"
+                data-nui-tooltip="Hermann M."
+              >
+                <div class="nui-avatar-inner">
+                  <!--[--><img
+                    src="../img/avatars/16.svg"
+                    class="nui-avatar-img"
+                  /><!----><!----><!--]-->
+                </div>
+                <!----><!---->
+              </div>
+            </div>
+            <div class="mt-2 text-center">
+              <p
+                class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+              >
+                <!--[-->
+                And 5 others are members of this project
+                <!--]-->
+              </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between gap-2">
+              <button
+                type="button"
+                rel=""
+                target=""
+                class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-default w-full"
+              >
+                <!--[-->Decline<!--]--><!----></button
+              ><button
+                type="button"
+                rel=""
+                target=""
+                class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-primary w-full"
+              >
+                <!--[-->Accept<!--]--><!---->
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex flex-col p-8">
+            <p
+              class="nui-heading nui-heading-md nui-weight-medium nui-lead-normal mt-4"
+              tag="h2"
+            >
+              <!--[-->
+              Additional Instructions
+              <!--]-->
+            </p>
+            <p
+              class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400 max-w-xs"
+            >
+              <!--[-->
+              Please read the following instructions carefully before accepting
+              the invitation.
+              <!--]-->
+            </p>
+            <div class="mt-6">
+              <ul class="space-y-6">
+                <li class="flex gap-3">
+                  <div
+                    class="border-muted-200 dark:border-muted-600 dark:bg-muted-700 shadow-muted-300/30 dark:shadow-muted-800/20 flex h-9 w-9 items-center justify-center rounded-full border bg-white shadow-xl"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon text-success-500 h-4 w-4"
+                      style=""
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-26e5b7b0=""
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 6L9 17l-5-5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal"
+                    >
+                      <!--[-->
+                      Project Summary
+                      <!--]-->
+                    </h3>
+                    <p
+                      class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400 max-w-[210px]"
+                    >
+                      <!--[-->
+                      Please read the project summary. You'll find it in your
+                      inbox
+                      <!--]-->
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="border-muted-200 dark:border-muted-600 dark:bg-muted-700 shadow-muted-300/30 dark:shadow-muted-800/20 flex h-9 w-9 items-center justify-center rounded-full border bg-white shadow-xl"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon text-success-500 h-4 w-4"
+                      style=""
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-26e5b7b0=""
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 6L9 17l-5-5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal"
+                    >
+                      <!--[-->
+                      UI Review
+                      <!--]-->
+                    </h3>
+                    <p
+                      class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400 max-w-[210px]"
+                    >
+                      <!--[-->
+                      Please review the latest wireframes the team has provided
+                      <!--]-->
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="border-muted-200 dark:border-muted-600 dark:bg-muted-700 shadow-muted-300/30 dark:shadow-muted-800/20 flex h-9 w-9 items-center justify-center rounded-full border bg-white shadow-xl"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon text-success-500 h-4 w-4"
+                      style=""
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-26e5b7b0=""
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 6L9 17l-5-5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal"
+                    >
+                      <!--[-->
+                      Schedule
+                      <!--]-->
+                    </h3>
+                    <p
+                      class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-500 dark:text-muted-400 max-w-[210px]"
+                    >
+                      <!--[-->
+                      Please schedule a meeting with the team so they can ramp
+                      you up.
+                      <!--]-->
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--]-->
+    </div>
+  </div>
+</div>

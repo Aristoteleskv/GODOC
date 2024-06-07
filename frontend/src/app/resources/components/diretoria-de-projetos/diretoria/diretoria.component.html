@@ -1,0 +1,2780 @@
+ 
+  <!--[-->
+  <div class="flex h-[calc(100vh_-_53px)] grow space-x-6 overflow-auto pt-2">
+    <!--[-->
+ 
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span class="block font-sans text-sm font-semibold">Novo</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4550"
+              _msthash="111"
+              >2</span
+            ><button
+              (click)="fileModal()"
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div *ngIf="loading" class="w-full">
+              <ng-template #indicatorTemplate class="mt-5">
+                <span
+                  class="nui-progress nui-progress-default nui-progress-warning nui-progress-sm nui-progress-full"
+                >
+                  <i
+                    nz-icon
+                    nzType="loading"
+                    [ngStyle]="{
+                      color: 'rgb(245 158 11 / var(--tw-bg-opacity))',
+                      'font-size': '3.5rem',
+                      margin: 'auto'
+                    }"
+                  ></i>
+                </span>
+              </ng-template>
+              <nz-spin
+                [ngStyle]="{ width: '60px', margin: '0px auto' }"
+                nzSimple
+                [nzIndicator]="indicatorTemplate"
+              >
+              </nz-spin>
+            </div>
+            <div
+              *ngIf="!loading"
+              class="smooth-dnd-container vertical flex flex-col gap-y-4"
+            >
+              <!--[-->
+    
+              <div
+                class="smooth-dnd-draggable-wrapper"
+                *ngFor="let file of files | async; let i = index"
+              >
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[-->
+                        <font> Nº Registo #{{ file.id }} </font>
+                        <!--]-->
+                      </span>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="179569"
+                          _msthash="113"
+                          >2 dias atrás</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[-->
+                      <span>
+                        {{this.roles}} - {{this.permissions}}
+                        Implementar o ponto de extremidade da API de usuários da
+                        empresa
+                        </span>
+                        <!--]-->
+                    </h4>
+                  </div> 
+                  <nz-button-group [ngSwitch]="user.role_id"  class="w-full nui-content-xs nui-weight-normal nui-lead-normal text-muted-400">
+                    <button *ngSwitchCase=1 class="p-2 w-full text-muted-400 nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 dark:bg-muted-900 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 nui-button-rounded rounded-lg nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+                      Classificar
+                    </button> 
+                      <button *ngSwitchCase=2 class="p-2 w-full text-muted-400 nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 dark:bg-muted-900 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 nui-button-rounded rounded-lg nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+                        <span class="icon coricon svg-icon svg-icon-1x svg-icon-default">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon me-2 size-5" width="1em" height="1em" viewBox="0 0 256 256" data-v-b4402e20=""><g fill="currentColor"><path d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96" opacity=".2"></path><path d="M72 128a134.63 134.63 0 0 1-14.16 60.47a8 8 0 1 1-14.32-7.12A118.8 118.8 0 0 0 56 128a71.73 71.73 0 0 1 27-56.2a8 8 0 1 1 10 12.49A55.76 55.76 0 0 0 72 128m56-8a8 8 0 0 0-8 8a184.12 184.12 0 0 1-23 89.1a8 8 0 0 0 14 7.76A200.19 200.19 0 0 0 136 128a8 8 0 0 0-8-8m0-32a40 40 0 0 0-40 40a8 8 0 0 0 16 0a24 24 0 0 1 48 0a214.09 214.09 0 0 1-20.51 92a8 8 0 1 0 14.51 6.83A230 230 0 0 0 168 128a40 40 0 0 0-40-40m0-64A104.11 104.11 0 0 0 24 128a87.76 87.76 0 0 1-5 29.33a8 8 0 0 0 15.09 5.33A103.9 103.9 0 0 0 40 128a88 88 0 0 1 176 0a282.24 282.24 0 0 1-5.29 54.45a8 8 0 0 0 6.3 9.4a8.22 8.22 0 0 0 1.55.15a8 8 0 0 0 7.84-6.45A298.37 298.37 0 0 0 232 128A104.12 104.12 0 0 0 128 24M94.4 152.17a8 8 0 0 0-9.4 6.25a151 151 0 0 1-17.21 45.44a8 8 0 0 0 13.86 8a166.67 166.67 0 0 0 19-50.25a8 8 0 0 0-6.25-9.44M128 56a72.85 72.85 0 0 0-9 .56a8 8 0 0 0 2 15.87A56.08 56.08 0 0 1 184 128a252.12 252.12 0 0 1-1.92 31a8 8 0 0 0 6.92 9a8.39 8.39 0 0 0 1 .06a8 8 0 0 0 7.92-7a266.48 266.48 0 0 0 2-33A72.08 72.08 0 0 0 128 56m57.93 128.25a8 8 0 0 0-9.75 5.75c-1.46 5.69-3.15 11.4-5 17a8 8 0 0 0 5 10.13a7.88 7.88 0 0 0 2.55.42a8 8 0 0 0 7.58-5.46c2-5.92 3.79-12 5.35-18.05a8 8 0 0 0-5.72-9.78Z"></path></g></svg>
+                        </span> 
+                        Dar parecer 
+                      </button> 
+                    <span *ngSwitchCase=3>
+                      ..
+                    </span>
+                    <span *ngSwitchCase=4>
+                      ..
+                    </span>
+                    <span *ngSwitchCase=5>
+                      ..
+                    </span>
+                    <button *ngSwitchCase=6 class="p-2 w-full text-muted-400 nui-button items-center justify-center rounded-full x h-10 bg-muted-100 hover:bg-muted-100 dark:bg-muted-900 dark:hover:bg-muted-700/70 text-muted-500 dark:text-muted-400 nui-button-rounded rounded-lg nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100 nui-button-default">
+                      <span class="icon coricon svg-icon svg-icon-1x svg-icon-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon me-2 size-5" width="1em" height="1em" viewBox="0 0 256 256" data-v-b4402e20=""><g fill="currentColor"><path d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96" opacity=".2"></path><path d="M72 128a134.63 134.63 0 0 1-14.16 60.47a8 8 0 1 1-14.32-7.12A118.8 118.8 0 0 0 56 128a71.73 71.73 0 0 1 27-56.2a8 8 0 1 1 10 12.49A55.76 55.76 0 0 0 72 128m56-8a8 8 0 0 0-8 8a184.12 184.12 0 0 1-23 89.1a8 8 0 0 0 14 7.76A200.19 200.19 0 0 0 136 128a8 8 0 0 0-8-8m0-32a40 40 0 0 0-40 40a8 8 0 0 0 16 0a24 24 0 0 1 48 0a214.09 214.09 0 0 1-20.51 92a8 8 0 1 0 14.51 6.83A230 230 0 0 0 168 128a40 40 0 0 0-40-40m0-64A104.11 104.11 0 0 0 24 128a87.76 87.76 0 0 1-5 29.33a8 8 0 0 0 15.09 5.33A103.9 103.9 0 0 0 40 128a88 88 0 0 1 176 0a282.24 282.24 0 0 1-5.29 54.45a8 8 0 0 0 6.3 9.4a8.22 8.22 0 0 0 1.55.15a8 8 0 0 0 7.84-6.45A298.37 298.37 0 0 0 232 128A104.12 104.12 0 0 0 128 24M94.4 152.17a8 8 0 0 0-9.4 6.25a151 151 0 0 1-17.21 45.44a8 8 0 0 0 13.86 8a166.67 166.67 0 0 0 19-50.25a8 8 0 0 0-6.25-9.44M128 56a72.85 72.85 0 0 0-9 .56a8 8 0 0 0 2 15.87A56.08 56.08 0 0 1 184 128a252.12 252.12 0 0 1-1.92 31a8 8 0 0 0 6.92 9a8.39 8.39 0 0 0 1 .06a8 8 0 0 0 7.92-7a266.48 266.48 0 0 0 2-33A72.08 72.08 0 0 0 128 56m57.93 128.25a8 8 0 0 0-9.75 5.75c-1.46 5.69-3.15 11.4-5 17a8 8 0 0 0 5 10.13a7.88 7.88 0 0 0 2.55.42a8 8 0 0 0 7.58-5.46c2-5.92 3.79-12 5.35-18.05a8 8 0 0 0-5.72-9.78Z"></path></g></svg>
+                      </span> 
+                      solicitar parecer 
+                    </button> 
+                    <span *ngSwitchDefault>
+                      ..
+                    </span>
+                    </nz-button-group>
+                  <div class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium">
+                       
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="assets/img/avatars/24.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span  class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400">
+                        {{this.user.username}}
+                        
+                        </span>
+                      
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4" 
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <span>
+                          {{ formatBytes(file.size, 0) }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!--]-->
+            </div>
+          </div>
+        </div>
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span
+              class="block font-sans text-sm font-semibold"
+              _msttexthash="179608"
+              _msthash="120"
+              >Classificação</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4823"
+              _msthash="121"
+              >5</span
+            ><button
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4" 
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div class="smooth-dnd-container vertical flex flex-col gap-y-4">
+              <!--[-->
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="88751"
+                          _msthash="122"
+                        >
+                          Tarefa #1</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="179933"
+                          _msthash="123"
+                          >6 dias atrás</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3153007" _msthash="124"
+                        >Criar um modelo de página de destino para futuras campanhas
+                        de marketing</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/12.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="121121"
+                          _msthash="125"
+                          >Marjory L.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 files uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 comment"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="88933"
+                          _msthash="126"
+                        >
+                          Tarefa #2</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="199394"
+                          _msthash="127"
+                          >18 dias atrás</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3300583" _msthash="128"
+                        >Crie um player de vídeo javascript personalizado com
+                        suporte a streaming</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/15.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="98488"
+                          _msthash="129"
+                          >Josué C.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 files uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="89297"
+                          _msthash="130"
+                        >
+                          Tarefa #4</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164359"
+                          _msthash="131"
+                          >há 2 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3233659" _msthash="132"
+                        >Implementar um ponto de extremidade completo da API de
+                        ofertas de trabalho</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/3.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="110214"
+                          _msthash="133"
+                          >G. Clarke.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="98111"
+                          _msthash="134"
+                        >
+                          Tarefa #10</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="179933"
+                          _msthash="135"
+                          >6 dias atrás</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="2367872" _msthash="136"
+                        >Implementar um ponto de extremidade da API de lista de
+                        contatos</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/12.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="121121"
+                          _msthash="137"
+                          >Marjory L.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 files uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="98501"
+                          _msthash="138"
+                        >
+                          Tarefa #12</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164476"
+                          _msthash="139"
+                          >há 3 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3015545" _msthash="140"
+                        >Implementar um ponto de extremidade da API de mensagens
+                        para o front-end</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/3.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="110214"
+                          _msthash="141"
+                          >G. Clarke.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="3 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 comment"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span
+              class="block font-sans text-sm font-semibold"
+              _msttexthash="133640"
+              _msthash="142"
+              >Bloqueado</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4368"
+              _msthash="143"
+              >0</span
+            ><button
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div class="smooth-dnd-container vertical flex flex-col gap-y-4">
+              <div>
+                <div class="text-muted-400 mt-10 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon size-12"
+                    style=""
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-b4402e20=""
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M216 52H40a4 4 0 0 0-4 4v152a12 12 0 0 0 12 12h40a12 12 0 0 0 12-12v-52h56v20a12 12 0 0 0 12 12h40a12 12 0 0 0 12-12V56a4 4 0 0 0-4-4M92 208a4 4 0 0 1-4 4H48a4 4 0 0 1-4-4v-84h48Zm0-92H44V60h48Zm64 32h-56V60h56Zm56 28a4 4 0 0 1-4 4h-40a4 4 0 0 1-4-4v-52h48Zm0-60h-48V60h48Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2 text-center">
+                  <h4
+                    class="nui-heading nui-heading-md nui-weight-light nui-lead-normal mb-1"
+                  >
+                    <!--[--><span _msttexthash="206505" _msthash="144"
+                      >Nada a mostrar</span
+                    ><!--]-->
+                  </h4>
+                  <p
+                    class="nui-paragraph nui-paragraph-xs nui-weight-normal nui-lead-tight text-muted-500 dark:text-muted-400 mx-auto max-w-[200px] !font-sans"
+                  >
+                    <!--[--><span _msttexthash="2053181" _msthash="145"
+                      >Não há tarefas pendentes para mostrar aqui por
+                      enquanto.</span
+                    ><!--]-->
+                  </p>
+                  <button
+                    class="text-primary-500 dark:text-sunny mx-auto mt-2 flex items-center justify-center gap-1 font-sans text-xs underline-offset-4 hover:underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon size-3"
+                      style=""
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-b4402e20=""
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 12h14m-7-7v14"
+                      ></path></svg
+                    ><span _msttexthash="154492" _msthash="146">Nova tarefa</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span
+              class="block font-sans text-sm font-semibold"
+              _msttexthash="113074"
+              _msthash="147"
+              >Parecer</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4459"
+              _msthash="148"
+              >1</span
+            ><button
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div class="smooth-dnd-container vertical flex flex-col gap-y-4">
+              <!--[-->
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="90207"
+                          _msthash="149"
+                        >
+                          Tarefa #9</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164359"
+                          _msthash="150"
+                          >há 2 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="1855750" _msthash="151"
+                        >Criar um conceito para uma página de lista de
+                        contatos</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/24.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="95173"
+                          _msthash="152"
+                          >Carmem E.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="4 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+      
+     
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span
+              class="block font-sans text-sm font-semibold"
+              _msttexthash="159731"
+              _msthash="153"
+              >Em revisão</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4368"
+              _msthash="154"
+              >0</span
+            ><button
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div class="smooth-dnd-container vertical flex flex-col gap-y-4">
+              <div>
+                <div class="text-muted-400 mt-10 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon size-12"
+                    style=""
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-b4402e20=""
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M216 52H40a4 4 0 0 0-4 4v152a12 12 0 0 0 12 12h40a12 12 0 0 0 12-12v-52h56v20a12 12 0 0 0 12 12h40a12 12 0 0 0 12-12V56a4 4 0 0 0-4-4M92 208a4 4 0 0 1-4 4H48a4 4 0 0 1-4-4v-84h48Zm0-92H44V60h48Zm64 32h-56V60h56Zm56 28a4 4 0 0 1-4 4h-40a4 4 0 0 1-4-4v-52h48Zm0-60h-48V60h48Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="mt-2 text-center">
+                  <h4
+                    class="nui-heading nui-heading-md nui-weight-light nui-lead-normal mb-1"
+                  >
+                    <!--[--><span _msttexthash="206505" _msthash="155"
+                      >Nada a mostrar</span
+                    ><!--]-->
+                  </h4>
+                  <p
+                    class="nui-paragraph nui-paragraph-xs nui-weight-normal nui-lead-tight text-muted-500 dark:text-muted-400 mx-auto max-w-[200px] !font-sans"
+                  >
+                    <!--[--><span _msttexthash="2053181" _msthash="156"
+                      >Não há tarefas pendentes para mostrar aqui por
+                      enquanto.</span
+                    ><!--]-->
+                  </p>
+                  <button
+                    class="text-primary-500 dark:text-sunny mx-auto mt-2 flex items-center justify-center gap-1 font-sans text-xs underline-offset-4 hover:underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon size-3"
+                      style=""
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-b4402e20=""
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 12h14m-7-7v14"
+                      ></path></svg
+                    ><span _msttexthash="154492" _msthash="157">Nova tarefa</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex h-full w-72 shrink-0 flex-col">
+          <div class="flex h-14 shrink-0 items-center px-2">
+            <span
+              class="block font-sans text-sm font-semibold"
+              _msttexthash="134069"
+              _msthash="158"
+              >Fim de Processo</span
+            ><span
+              class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+              _msttexthash="4823"
+              _msthash="159"
+              >5</span
+            ><button
+              class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon size-4"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                data-v-b4402e20=""
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14m-7-7v14"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="nui-slimscroll overflow-auto pb-10 pe-2">
+            <div class="smooth-dnd-container vertical flex flex-col gap-y-4">
+              <!--[-->
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="88569"
+                          _msthash="160"
+                        >
+                          Tarefa #0</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="179569"
+                          _msthash="161"
+                          >2 dias atrás</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="2839525" _msthash="162"
+                        >Criar um novo design figma para os novos elementos da
+                        página inicial</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/24.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="95173"
+                          _msthash="163"
+                          >Carmem E.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 files uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="89115"
+                          _msthash="164"
+                        >
+                          Tarefa #3</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164359"
+                          _msthash="165"
+                          >há 2 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3350191" _msthash="166"
+                        >Crie um conjunto de ilustrações personalizadas para o site
+                        e o aplicativo</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/15.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="98488"
+                          _msthash="167"
+                          >Josué C.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="4 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="89843"
+                          _msthash="168"
+                        >
+                          Tarefa #7</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164359"
+                          _msthash="169"
+                          >há 2 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="3599973" _msthash="170"
+                        >Criar componentes reutilizáveis para criar diferentes
+                        seções de preços</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/12.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="121121"
+                          _msthash="171"
+                          >Marjory L.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="5 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="90025"
+                          _msthash="172"
+                        >
+                          Tarefa #8</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164476"
+                          _msthash="173"
+                          >há 3 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="1385137" _msthash="174"
+                        >Implementar uma página de perfil de usuário</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/24.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="95173"
+                          _msthash="175"
+                          >Carmem E.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="3 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="1 file uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="smooth-dnd-draggable-wrapper">
+                <div
+                  role="button"
+                  tabindex="0"
+                  class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 group relative flex cursor-pointer flex-col items-start rounded-lg border bg-white/90 p-4 hover:bg-white"
+                  draggable="true"
+                >
+                  <div class="relative mb-2">
+                    <div
+                      class="mb-2 flex w-full items-center justify-between gap-2"
+                    >
+                      <span
+                        class="nui-tag nui-tag-md nui-tag-rounded-full nui-tag-pastel nui-tag-muted m-0 -ms-1 inline-flex h-6 scale-90 items-center py-0 text-xs font-semibold"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="98306"
+                          _msthash="176"
+                        >
+                          Tarefa #11</font
+                        ><!--]--></span
+                      ><span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="164359"
+                          _msthash="177"
+                          >há 2 semanas</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <h4
+                      class="nui-heading nui-heading-sm nui-weight-medium nui-lead-normal line-clamp-2"
+                    >
+                      <!--[--><span _msttexthash="1749644" _msthash="178"
+                        >Implementar um frontend de mensagens para contatos</span
+                      ><!--]-->
+                    </h4>
+                  </div>
+                  <div
+                    class="text-muted-500 dark:text-muted-200 mt-2 flex w-full items-center justify-between text-xs font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="nui-avatar nui-avatar-xxs nui-avatar-rounded-full shrink-0"
+                      >
+                        <div class="nui-avatar-inner">
+                          <!--[--><img
+                            src="/img/avatars/3.svg"
+                            class="nui-avatar-rounded-full nui-avatar-img"
+                          /><!----><!----><!--]-->
+                        </div>
+                        <!----><!---->
+                      </div>
+                      <span
+                        class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+                        ><!--[--><font
+                          _mstmutation="1"
+                          _msttexthash="110214"
+                          _msthash="179"
+                          >G. Clarke.</font
+                        ><!--]--></span
+                      >
+                    </div>
+                    <div class="text-muted-400 flex items-center gap-3">
+                      <div
+                        data-nui-tooltip="4 subtasks in checklist"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11l3 3L22 4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="2 files uploaded"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                            ></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        data-nui-tooltip="3 comments"
+                        data-nui-tooltip-position="start"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          class="icon size-4"
+                          style=""
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          data-v-b4402e20=""
+                        >
+                          <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+     
+   
+    <!--]-->
+ 
+  </div>
+  <!--]-->
+ 
+
+<nz-modal
+  [(nzVisible)]="Visible"
+  nzTitle="Adicionar ficheiro na pasta "
+  nzDraggable
+  [nzFooter]="null"
+  (nzOnOk)="handOk()"
+  (nzOnCancel)="handCancel()"
+>
+  <ng-container *nzModalContent>
+   <form  >
+    <div class="modal-body mx-auto w-full max-w-xs text-justify">
+      <div *ngFor="let contact of contacts; let i = index">
+        <input
+          title="f"
+          name="idPara"
+          type="checkbox"
+          [id]="contact.id"
+          [(ngModel)]="contacts[i].selected"
+        />
+        <label [for]="contact.id">{{ contact.full_name }}</label>
+      </div>
+      <!-- HTML -->
+<div class="custom-select">
+  <select multiple>
+    <option value="opcao1">Opção 1</option>
+    <option value="opcao2">Opção 2</option>
+    <option value="opcao3">Opção 3</option>
+    <!-- Adicione mais opções conforme necessário -->
+  </select>
+</div>
+<nz-select  [(ngModel)]="doc.idPara">
+  <nz-option *ngFor="let option of contacts" [nzValue]="option.value">{{option.full_name}}</nz-option>
+</nz-select>
+
+      <!--dps-->
+      <div *ngFor="let contactdp of contactDps; let i = index">
+        <input
+          title="f"
+          name="idDp"
+          type="checkbox"
+          [id]="contactdp.id"
+          [(ngModel)]="contactDps[i].selected"
+        />
+        <label [for]="contactdp.id">{{ contactdp.sigla_departamento }}</label>
+      </div>
+       
+        
+  <div class="grid grid-cols-12 gap-4 py-8">
+    <div class="col-span-12">
+      <!--[--><!--[-->
+      <div
+        class="nui-autocomplete nui-autocomplete-md nui-autocomplete-default nui-autocomplete-curved nui-has-icon"
+        data-headlessui-state="11"
+      >
+        <label
+          id="headlessui-combobox-label-1436"
+          data-headlessui-state="11"
+          class="nui-autocomplete-label"
+          ><!--[-->Participants<!--]--></label
+        >
+        <div class="nui-autocomplete-multiple"><!----></div>
+        <div class="nui-autocomplete-outer">
+          <input
+            defaultvalue=""
+            aria-expanded="false"
+            aria-autocomplete="list"
+            id="headlessui-combobox-input-1437"
+            role="combobox"
+            type="text"
+            tabindex="0"
+            data-headlessui-state="11"
+            class="nui-autocomplete-input"
+            placeholder="Add participants..."
+          /><!---->
+          <div class="nui-autocomplete-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon nui-autocomplete-icon-inner"
+              style=""
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+              data-v-26e5b7b0=""
+            >
+              <g fill="currentColor">
+                <path
+                  d="M136 108a52 52 0 1 1-52-52a52 52 0 0 1 52 52Z"
+                  opacity=".2"
+                ></path>
+                <path
+                  d="M117.25 157.92a60 60 0 1 0-66.5 0a95.83 95.83 0 0 0-47.22 37.71a8 8 0 1 0 13.4 8.74a80 80 0 0 1 134.14 0a8 8 0 0 0 13.4-8.74a95.83 95.83 0 0 0-47.22-37.71ZM40 108a44 44 0 1 1 44 44a44.05 44.05 0 0 1-44-44Zm210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16a44 44 0 1 0-16.34-84.87a8 8 0 1 1-5.94-14.85a60 60 0 0 1 55.53 105.64a95.83 95.83 0 0 1 47.22 37.71a8 8 0 0 1-2.33 11.07Z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <!----><!----><!---->
+        </div>
+        <!----><!---->
+      </div>
+      <!--]--><!--]-->
+    </div>
+    
+    <select [(ngModel)]="doc.idPara" multiple style="width: 200px;">
+      <option *ngFor="let item of contacts; let i = index" [value]="item.id">
+        <input
+          title="f"
+          name="idPara"
+          type="checkbox"
+          [id]="item.id"
+          [(ngModel)]="item[i].selected"
+        />
+        {{item.full_name}}</option>
+    </select>
+    <div class="col-span-12">
+      <!--[-->
+      <div
+        class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+      >
+        <label for="ninja-input-1968" class="nui-input-label"
+          ><!--[-->Event color<!--]--></label
+        >
+        <div class="nui-input-outer">
+          <div>
+            <input
+              id="ninja-input-1968"
+              type="text"
+              multiple
+              list="eventColors"
+              class="nui-input !h-11 !ps-11 appearance-none"
+              placeholder="Pick an event color..."
+              value=""
+            /><!----><!---->
+            <div class="!h-11 !w-11 nui-input-icon">
+              <!--[--><svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon nui-input-icon-inner" 
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                data-v-26e5b7b0=""
+              >
+                <g fill="currentColor">
+                  <path
+                    d="M208 144a80 80 0 0 1-80 80V16s80 56 80 128Z"
+                    opacity=".2"
+                  ></path>
+                  <path
+                    d="M174 47.75a254.19 254.19 0 0 0-41.45-38.3a8 8 0 0 0-9.18 0A254.19 254.19 0 0 0 82 47.75C54.51 79.32 40 112.6 40 144a88 88 0 0 0 176 0c0-31.4-14.51-64.68-42-96.25ZM56 144c0-50 42.26-92.71 64-111.4v182.94A72.08 72.08 0 0 1 56 144Zm80 71.54V32.6C157.74 51.29 200 94 200 144a72.08 72.08 0 0 1-64 71.54Z"
+                  ></path>
+                </g></svg
+              ><!--]-->
+            </div>
+            <!--[--><!--]-->
+          </div>
+          <!---->
+        </div>
+      </div>  
+ 
+      <datalist id="eventColors"   [ariaMultiSelectable]="true"> 
+        <option name="idPara" *ngFor="let contact of contacts; let i = index">
+          <input
+          title="f"
+          name="idPara"
+          type="checkbox"
+          [id]="contact.id"
+          [(ngModel)]="contacts[i].selected"
+        />
+        <label [for]="contact.id">{{ contact.full_name }}</label>
+      
+        </option>
+        
+        </datalist>
+        <!--]-->
+    </div>
+    <div class="col-span-12">
+      <!--[-->
+      <div
+        class="nui-input-wrapper nui-input-md nui-has-icon cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+      >
+        
+        <div class="nui-input-outer">
+          <div>
+            <input
+            type="text"
+            name="projecto"
+            [(ngModel)]="doc.projecto"
+            placeholder="Ex: GoeProjecto"
+            class=" nui-input !bg-muted-100 dark:!bg-muted-700 rounded-lg   me-3 "
+        >
+            <!---->
+            <div class="!h-11 !w-11 nui-input-icon">
+              <!--[--><svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon nui-input-icon-inner"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                data-v-26e5b7b0=""
+              >
+                <g fill="currentColor">
+                  <path
+                    d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                    opacity=".2"
+                  ></path>
+                  <path
+                    d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                  ></path>
+                </g></svg
+              ><!--]-->
+            </div>
+            <!--[--><!--]-->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="col-span-12">
+      <!--[-->
+      <div class="nui-input-wrapper nui-input-md nui-has-icon cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+         
+        <div class="nui-input-outer">
+          <div>
+            <input
+              type="text"
+              name="nRegisto"
+              [(ngModel)]="doc.nRegisto"
+              placeholder="Ex: nRegisto"
+              class=" nui-input !bg-muted-100 dark:!bg-muted-700 rounded-lg   me-3 "
+          >
+          <!---->
+            <div class="!h-11 !w-11 nui-input-icon">
+              <!--[--><svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon nui-input-icon-inner"
+                style=""
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                data-v-26e5b7b0=""
+              >
+                <g fill="currentColor">
+                  <path
+                    d="M112 80a32 32 0 1 1-32-32a32 32 0 0 1 32 32Zm64 32a32 32 0 1 0-32-32a32 32 0 0 0 32 32Zm-96 32a32 32 0 1 0 32 32a32 32 0 0 0-32-32Zm96 0a32 32 0 1 0 32 32a32 32 0 0 0-32-32Z"
+                    opacity=".2"
+                  ></path>
+                  <path
+                    d="M80 40a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Zm96 16a40 40 0 1 0-40-40a40 40 0 0 0 40 40Zm0-64a24 24 0 1 1-24 24a24 24 0 0 1 24-24Zm-96 80a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Zm96-64a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Z"
+                  ></path>
+                </g></svg
+              ><!--]-->
+            </div>
+            <!--[--><!--]-->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="col-span-12">
+      <!--[--><!--[-->
+      <div class="flex w-full flex-col gap-4 sm:flex-row">
+        <div class="relative grow">
+          <!--[-->
+          <div
+            class="nui-input-wrapper nui-input-md nui-has-icon cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+          >
+            <label for="1995" class="nui-input-label"
+              ><!--[-->Data Entrada<!--]--></label
+            >
+            <div class="nui-input-outer">
+              <div>
+                <input 
+                  id="1995"
+                  type="date"
+                  [(ngModel)]="doc.dataEntrada"
+
+                  class="nui-input !h-11 !ps-11"
+                /><!----><!---->
+                <div class="!h-11 !w-11 nui-input-icon">
+                  <!--[--><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon nui-input-icon-inner" 
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256" 
+                  >
+                    <g fill="currentColor">
+                      <path
+                        d="M216 48v40H40V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                        opacity=".2"
+                      ></path>
+                      <path
+                        d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16ZM72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160v112Z"
+                      ></path>
+                    </g></svg
+                  ><!--]-->
+                </div>
+                <!--[--><!--]-->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <!--]-->
+        </div>
+        <div class="relative grow">
+          <!--[-->
+          <div class="nui-input-wrapper nui-input-md nui-has-icon cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+      >
+            <label for="ninja-input-1966" class="nui-input-label"
+              ><!--[-->Rubrica<!--]--></label
+            >
+            <div class="nui-input-outer">
+              <div>
+                <input
+                  id="ninja-input-1966" 
+                  name="rubrica"
+                  [(ngModel)]="doc.rubrica"
+                  type="text"
+                  class="nui-input !h-11 !ps-11"
+                /><!----><!---->
+                <div class="!h-11 !w-11 nui-input-icon">
+                  <!--[--><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon nui-input-icon-inner"
+                    style=""
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-26e5b7b0=""
+                  >
+                    <g fill="currentColor">
+                      <path
+                        d="M216 48v40H40V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                        opacity=".2"
+                      ></path>
+                      <path
+                        d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16ZM72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160v112Z"
+                      ></path>
+                    </g></svg
+                  ><!--]-->
+                </div>
+                <!--[--><!--]-->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <!--]-->
+        </div>
+      </div>
+      <!--]--> 
+    </div>
+    </div>
+        <div *ngFor="let progressInfo of progressInfos" class="mb-2">
+
+          <div class="w-full grow space-y-1 sm:w-auto sm:max-w-[260px]">
+            <div class="flex items-center justify-between">
+              <h4 class="text-muted-700 dark:text-muted-100 font-sans text-sm font-medium"> Progress <span>{{ progressInfo.fileName }}</span></h4>
+            <div>
+              <span class="text-muted-400 font-sans text-sm">{{ progressInfo.value }}% </span>
+            </div>
+          </div>
+          <div role="progressbar" aria-valuenow="0" aria-valuemax="100" class="nui-progress nui-progress-default nui-progress-success nui-progress-xs nui-progress-full">
+            <div
+               attr.aria-valuenow="{{ progressInfo.value }}"
+            class="nui-progress-bar" [ngStyle]="{ width: progressInfo.value + '%' }"></div>
+          </div>
+        </div>
+        <nz-progress [nzPercent]="progressInfo.value" [nzStrokeColor]="{ '0%': '#108ee9', '100%': '#87d068' }"></nz-progress>
+            
+        </div>
+        
+        
+        
+        <div class="nui-avatar nui-avatar-lg nui-avatar-full" *ngFor="let preview of previews" >
+        &nbsp;
+          <div class=" border-muted-200 text-muted-400 after:border-muted-300 dark:border-muted-600 dark:bg-muted-700 dark:after:border-muted-600 flex items-center justify-center border bg-white shadow-lg nui-avatar-inner"><!--[-->
+            <img  title="d" nz-image [nzSrc]="preview" class="preview flex inline-flex nui-avatar-img"><!----><!----><!--]-->
+          </div><!----><!---->
+        </div>
+        
+        <div class="flex flex-lg-row row">
+          <div class="col-8">
+            <label class="btn btn-default p-0">
+              <input title="d" 
+                type="file"
+                name="file" 
+                accept="image/*"
+                multiple
+                (change)="selectFiles($event)"
+              />
+            </label>
+          </div>
+          <div class="col-4">
+            <button type="button"
+              nz-button
+              class="nui-button-action nui-button-primary nui-button-rounded btn btn-success btn-sm"
+              [disabled]="!selectedFiles"
+              (click)="uploadFiles()"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon h-3 w-3" width="1em" height="1em" viewBox="0 0 24 24" data-v-26e5b7b0=""><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
+              Upload
+            </button>
+          </div>
+        </div>
+        
+         <div *ngIf="message.length" class="alert alert-secondary my-3" role="alert">
+          <ul *ngFor="let msg of message; let i = index">
+            <li>{{ msg }}</li>
+          </ul>
+        </div>
+         
+        <div class="card mt-3">
+          <div class="card-header">List of Images</div>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let image of imageInfos | async" class="list-group-item">
+              <p><a href="{{ image.url }}">{{ image.file_name }}</a></p>
+              <img src="{{ image.url }}" alt="{{ image.file_name }}" height="80px" />
+            </li>
+          </ul>
+        </div>
+        
+         
+         
+         
+     
+         <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzRequired>Descrição</nz-form-label>
+          <nz-form-control
+            [nzSpan]="12"
+            nzHasFeedback
+            nzErrorTip="Please write something here!"
+          >
+            <nz-textarea-count [nzMaxCharacterCount]="2000">
+              <textarea
+                [(ngModel)]="mensagem"
+                nz-input
+                rows="2"
+                placeholder="Digite sua notificação"
+              ></textarea>
+            </nz-textarea-count>
+          </nz-form-control>
+        </nz-form-item>
+      
+    </div>
+    <div class="modal-footer flex w-full items-center gap-x-2 justify-end">
+      <div class="p-4 md:p-6">
+        <div class="flex gap-x-2">
+          <button
+            type="button"
+            rel=""
+            target=""
+            class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-default"
+          >
+            Decline
+            <!---->
+          </button>
+          <button
+            nz-button
+            type="button"
+            (click)="shareFiles()"
+            rel=""
+            target=""
+            class="nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-primary"
+          >
+            Accept
+            <!---->
+          </button>
+        </div>
+      </div>
+    </div>
+   </form>
+    
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Adicionar ficheiro na pasta "
+  nzDraggable
+  [nzFooter]="null"
+  (nzOnOk)="ParecerOk()"
+  (nzOnCancel)="ParecerCancel()"
+>
+  <ng-container *nzModalContent>
+ 
+  </ng-container>
+</nz-modal>

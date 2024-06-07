@@ -1,0 +1,124 @@
+<div class="verifica-container">
+  <nz-steps>
+    <nz-step nzTitle="Login" nzStatus="finish" nzIcon="user"></nz-step>
+    <nz-step nzTitle="Verification" nzStatus="finish" nzIcon="solution"></nz-step>
+    <nz-step nzTitle="Pay" nzStatus="process" nzIcon="loading"></nz-step>
+    <nz-step nzTitle="Done" nzStatus="wait" [nzIcon]="iconTemplate"></nz-step>
+    <ng-template #iconTemplate><span nz-icon nzType="smile"></span></ng-template>
+  </nz-steps>
+  <div class="form-container card">
+    <h2 class="h1">Autentificação</h2>
+    <nz-alert
+      nzShowIcon
+      [nzMessage]="alertMessage"
+      [ngStyle]="{ marginBottom: '12px' }"
+      *ngIf="alertVisible"
+    ></nz-alert>
+    <form class="form w-100 mb-13" (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label
+          ><h5><span>Ola!</span>&nbsp;&nbsp;{{ this.user[0].value }}</h5></label
+        >
+        <hr />
+
+         <!--begin::Icon-->
+      <div class="text-center mb-10">
+        <img alt="Logo" class="mh-125px" src="assets/media/svg/misc/smartphone-2.svg">
+      </div>
+      <!--end::Icon-->
+      <!--begin::Heading-->
+      <div class="text-center mb-10">
+        <!--begin::Title-->
+        <h1 class="text-dark mb-3">Two Step Verification</h1>
+        <!--end::Title-->
+        <!--begin::Sub-title-->
+        <div class="text-muted fw-semibold fs-5 mb-2">Foi enviado codigo ao seu contacto:</div>
+        <!--end::Sub-title-->
+        <!--begin::Mobile no-->
+        <div class="fw-bold text-dark fs-3">{{ mascaraNumero(user[2].value) }}</div>
+        <!--end::Mobile no-->
+      </div>
+      <!--end::Heading-->
+        <label for="email"
+          ><h6>Porfavor Insira o codigo de ativação recebida</h6></label
+        >
+        <input
+          class="form-control"
+          nz-input
+          type="number"
+          name="codigo_verify"
+          placeholder="Codigo"
+          ngModel
+          codigo_verify
+        />
+      </div>
+      <div class="mb-10">
+        <!--begin::Label-->
+        <div class="fw-bold text-start text-dark fs-6 mb-1 ms-1">Insira o codigo de ativação recebida de 4 digitos</div>
+        <!--end::Label-->
+        <!--begin::Input group-->
+        <div class="d-flex flex-row flex flex-wrap flex-stack nui-input-outer items-center">
+
+          <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved">
+            <div class="nui-input-outer">
+              <input title="a"
+                class="nui-input w fs-2qx text-center mx-1 my-2"
+                type="text"
+                name="code_1" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" value="" inputmode="text"
+              />
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+          <!--begin::Input group-->
+          <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved">
+            <div class="nui-input-outer">
+              <input title="b"
+                class="nui-input w fs-2qx text-center mx-1 my-2"
+                type="text"
+                name="code_2" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" value="" inputmode="text"
+              />
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+          <!--begin::Input group-->
+          <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved">
+            <div class="nui-input-outer">
+              <input title="c"
+                class="nui-input w fs-2qx text-center mx-1 my-2"
+                type="text"
+                name="code_3" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" value="" inputmode="text"
+              />
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+          <!--begin::Input group-->
+          <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved">
+            <div class="nui-input-outer">
+              <input title="d"
+                class="nui-input w fs-2qx text-center mx-1 my-2"
+                type="text"
+                name="code_4" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" value="" inputmode="text"
+              />
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+          <!--begin::Input group-->
+        </div>
+        <!--begin::Input group-->
+      </div>
+      <div class="cta-container">
+        <button
+          nz-button
+          type="submit"
+          class="btn button button--flex">
+          Verificar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

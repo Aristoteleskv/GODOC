@@ -1,0 +1,244 @@
+<div class="row" *ngIf="!pasta; else main_content">
+  <h1>Loading...</h1>
+  <div role="progressbar" aria-valuemax="100" class="nui-progress nui-progress-default nui-progress-warning nui-progress-sm nui-progress-full" title="indeterminate warning progress bar"><div class="nui-progress-indeterminate animate-nui-progress-indeterminate nui-progress-bar" style="width: 100%"></div></div>
+</div>
+<ng-template #main_content>
+
+        <div shape="curved" class="col-md-7 nui-card nui-card-curved bg-muted-50 dark:bg-muted-800/60 space-y-2 p-1">
+
+          <section class="m-auto mx-auto   cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100">
+
+          <summary
+          class=" m-auto mx-auto w-full nui-focus hover:bg-muted-100 text-muted-500 dark:text-muted-400 inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+          tabindex="{{ pasta.id }}"
+        >
+          <!--[-->
+
+          <div
+            class="p-4 m-auto mx-auto  w-full text-muted-700 dark:text-muted-400 relative z-10 flex items-center gap-1 font-sans text-sm"
+
+          >
+            <button
+              title="y"
+              class="text-muted-400 nui-focus me-1 flex h-5 w-5 items-center justify-center rounded"
+
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-90"
+
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h14"
+                ></path>
+              </svg>
+            </button>
+            <span
+              class="icon coricon svg-icon svg-icon-2x svg-icon-primary me-1"
+            >
+              <svg
+                width="55"
+                height="55"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.3"
+                  d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </span>
+            <!--[-->
+
+            <div
+              class=" m-auto mx-auto w-full nui-checkbox opacity-5 nui-checkbox-rounded text-primary-800 me-1"
+
+            >
+              <div class="nui-checkbox-label-wrapper">
+
+                <span>{{ pasta.nome }} - Aberto</span>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon text-muted-400 h-4 w-4 transition-transform duration-200 group-open:rotate-180"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m6 9l6 6l6-6"
+              ></path>
+            </svg>
+            <!--[-->
+          </div>
+          <!--]-->
+        </summary>
+
+
+
+        <!--]--><!--[-->
+        <div class="relative ">
+
+
+                <nz-table #Table class="rounded nui-card nui-card-curved  hover:!border-orange-500 ">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Name</th>
+                      <th>Name</th>
+                      <th>Name</th>
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="hover:bg-muted-50 dark:hover:bg-muted-900 transition-colors duration-300"  *ngFor="let file of files;">
+                      <td class="font-alt whitespace-nowrap text-sm text-muted-800 dark:text-white py-4 p-4"><!--[-->
+                        <div class="flex items-center">
+                          <div class="nui-checkbox rounded-full">
+                            <div class="nui-checkbox-outer rounded-full">
+                              <input title="t" true-value="true" false-value="false" value="table-1-0" class="text-primary-500 nui-checkbox-input rounded-full" type="checkbox">
+                              <div class="nui-checkbox-inner rounded-full"></div>
+                              <svg aria-hidden="true" viewBox="0 0 17 12" class="nui-icon-check"><path fill="currentColor" d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"></path></svg><svg aria-hidden="true" viewBox="0 0 24 24" class="nui-icon-indeterminate"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M2 12h20"></path></svg>
+                            </div>
+                            <div class="nui-checkbox-label-wrapper">
+                              <!----><!---->
+                            </div>
+                          </div>
+                        </div>
+                        <!--]-->
+                      </td>
+                       <td class="font-alt whitespace-nowrap text-sm text-muted-800 dark:text-white py-4">
+                          <div class="d-flex nui-checkbox-label-wrapper">
+                            <span
+                        class="icon coriconb svg-icon svg-icon-2x svg-icon-primary me-1"
+                      >
+                        <svg
+                          width="34"
+                          height="34"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            opacity="0.3"
+                            d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22Z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            fill="currentColor"
+                          ></path>
+                          <path
+                            d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+
+                            </span>
+
+                            <span class="inline">
+                              {{ file.file_name.substring(0, 16)}}{{ file.file_name.length > 20 ? "..." : "" }}
+                            </span>
+                          </div>
+                        </td>
+                        <td class="font-alt whitespace-nowrap text-sm text-muted-500 dark:text-white py-4">
+
+                          <span
+                            class="text-muted-500 dark:text-muted-400 font-sans text-sm"
+                            >{{ file.type }}</span
+                          ><!--]-->
+
+                          </td>
+                          <td class="font-alt whitespace-nowrap text-sm text-muted-500 dark:text-white py-4">
+                            <span
+                            class="nui-tag nui-tag-sm nui-tag-pastel nui-tag-success nui-tag-full capitalize"
+                          >
+                             {{  formatBytes(file.size,0)  }}
+                          </span>
+                          </td>
+                     <td>
+                        <nz-button-group>
+                          <button
+                            title="d"
+                            class="rotate-90 items-center justify-center rounded-full x h-9 w-9 bg-muted-100 hover:bg-muted-100 nui-button-rounded nui-button-primary nui-button-full inline-flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg font-sans text-[0.8rem] transition-all duration-100"
+                            nz-dropdown
+                            [nzDropdownMenu]="pasta"
+                            nzPlacement="bottomRight"
+                          >
+                            <span nz-icon nzType="more"></span>
+                          </button>
+                        </nz-button-group>
+                        <nz-dropdown-menu
+                          class="z rounded-full"
+                          #pasta="nzDropdownMenu"
+                        >
+                          <ul nz-menu>
+                            <li nz-menu-item>
+                              <a
+
+                                data-id="{{ file.id }}"
+                                data-name="{{ file.file_name }}"
+                                data-type="{{ file.type }}"
+                              >
+                                Visualizar em detalhes
+                              </a>
+                            </li>
+                            <li nz-menu-item>Mover</li>
+                            <li nz-menu-item>Renomear</li>
+                            <li nz-menu-item >
+                              Eliminar
+                            </li>
+                            <li nz-menu-item >
+                              Share via link
+                            </li>
+                            <li nz-menu-item>
+                              <a >
+                                <span nz-icon nzType="plus"></span> Add ficheiros
+                              </a>
+                            </li>
+                            <li nz-menu-item>Download</li>
+                          </ul>
+                        </nz-dropdown-menu>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </nz-table>
+
+          <!--]-->
+        </div>
+        <!--]-->
+          </section>
+
+
+
+        </div>
+
+  
+</ng-template>
+
+

@@ -1,0 +1,181 @@
+.scroll-header {
+  position: fixed; 
+    width: 79.5%;
+  -webkit-backdrop-filter: saturate(50%) blur(50px);
+  backdrop-filter: saturate(50%) blur(50px);
+  transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.headere {
+    z-index: var(--z-fixed);
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), width 0.3s step-start;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: -webkit-transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: transparent;
+}
+.header-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  > div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__left {
+  }
+  &__middle {
+    flex-grow: 1;
+    text-align: center;
+    > h3 {
+    }
+  }
+  &__right {
+    position: relative;
+    .cart-counter {
+      color: #fff;
+      background-color: red;
+      width: 17px;
+      height: 17px;
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50px;
+      position: absolute;
+      right: 0px;
+      top: 12px;
+      z-index: 2;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    padding: 0 24px;
+  }
+}
+
+// Carro Dropdown
+.cart-dropdown {
+  max-width: 285px;
+  min-width: 280px;
+  background-color: #ffff;
+  border-top: 1px var(--title-title-color);
+  border-radius: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+  &__empty {
+    padding: 12px;
+    text-align: center;
+    font-weight: 500;
+  }
+  &__content {
+    padding-top: 1px;
+    margin-top: 1px;
+    .product-list {
+      padding: 0 12px;
+      max-height: 180px;
+      overflow-y: auto;
+      border-bottom: 1px solid #494949 ;
+      &__item {
+        padding: 12px 0;
+        margin-bottom: 12px;
+        cursor: default;
+        .product-item {
+          display: flex;
+          position: relative;
+          align-items: center;
+          &__remove {
+            top: 4px;
+            right: 0px;
+            position: absolute;
+            border:  1px solid #272727 ;
+            border-radius: 7px;
+            height: 22px;
+            width: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+          }
+          &__image {
+            height: 72px;
+              width: 72px;
+              overflow: hidden;
+            > img {
+              width: 72px;
+              object-fit: contain;
+            }
+          }
+          &__description {
+            margin-left: 12px;
+            padding-right: 24px;
+            .product-name {
+              font-size: 1.125rem;
+            }
+            .product-amount {
+              > span {
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+    .cart-info {
+      padding: 16px;
+      .selected-amount {
+        font-size: 0.875rem;
+      }
+      .total-price {
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+    }
+    .cart-cta {
+      display: flex;
+      flex-direction: row;
+      > button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav-container {
+  padding: 16px;
+  > nav {
+    > ul {
+      display: flex;
+      > li {
+        cursor: pointer;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+
+nz-dropdown-menu {
+  margin: 0 8px 8px 0;
+  border-radius:22px;
+}
+nz-badge {
+  margin-right: 20px;
+}
+
+.head-example {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #eee;
+  display: inline-block;
+  vertical-align: middle;
+}
+.bcg-white{
+  background:#fff;
+}

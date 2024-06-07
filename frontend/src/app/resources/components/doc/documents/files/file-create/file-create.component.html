@@ -1,0 +1,1109 @@
+<div class="col-lg-4 mx-auto">
+  <div class="card">
+    <div class="card-header">Upload a Photo</div>
+    <div class="card-body">
+      <form  method="POST" enctype="multipart/form-data"
+        (submit)="
+          uploadPhoto(
+            idPasta,
+            idPara,
+            idDp,
+            projecto,
+            nRegisto,
+            data,
+            status,
+            rubrica
+          )
+        "
+      >
+      <div class="col-span-12 sm:col-span-6">
+        <!--[-->
+        <div
+          class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+        >
+          <label for="ninja-input-1969" class="nui-input-label"
+            ><!--[-->Event category<!--]--></label
+          >
+          <div class="nui-input-outer">
+            <div>
+              <input
+                type="text"
+                list="eventCategories"
+                class="nui-input !h-11 !ps-11"
+                placeholder="Pick a category..."
+                 [name]="idDp"
+                #idDp
+                required
+              /><!----><!---->
+              <div class="!h-11 !w-11 nui-input-icon">
+                <!--[--><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="icon nui-input-icon-inner"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 256 256"
+                  data-v-26e5b7b0=""
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                      opacity=".2"
+                    ></path>
+                    <path
+                      d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                    ></path>
+                  </g></svg
+                ><!--]-->
+              </div>
+              <!--[--><!--]-->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <datalist id="eventCategories">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5">Microsoft Edge</option></datalist
+        ><!--]-->
+      </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="idPasta"
+            [name]="idPasta"
+            #idPasta
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Photo's idPara"
+            #idPara
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Photo's projecto"
+            #projecto
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Photo's dataEntrada"
+            #data
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Photo's nRegisto"
+            #nRegisto
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Photo's status"
+            #status
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input 
+          type="text"
+            class="form-control"
+            placeholder="Photo's rubrica"
+            required
+            #rubrica
+          />
+        </div>
+
+        <input
+          title="t"
+          type="file"
+
+          class="d-none"
+          (change)="onPhotoSelected($event)"
+          #photoInput
+        />
+        <img
+          [src]="photoSelected || 'assets/img/logos/doc.png'"
+          class="img-fluid"
+          alt="No image"
+          (click)="photoInput.click()"
+        />
+
+        <button nz-button
+        type="submit"
+        [nzLoading]="loading"
+        class="btn btn-primary btn-block">Upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<form action="" method="POST" class="mx-auto w-full max-w-3xl">
+  <div class="nui-card nui-card-rounded nui-card-white">
+    <!--[-->
+    <div
+      class="border-muted-200 dark:border-muted-700 flex items-center justify-between gap-4 border-b px-10 py-5"
+    >
+      <div>
+        <h3
+          class="nui-heading nui-heading-md nui-weight-medium nui-lead-normal"
+        >
+          <!--[-->
+          New Meeting
+          <!--]-->
+        </h3>
+        <p
+          class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+        >
+          <!--[-->Schedule a new meeting<!--]-->
+        </p>
+      </div>
+      <div class="ms-auto flex items-center gap-2">
+        <button
+          type="button"
+          rel=""
+          target=""
+          class="nui-button-action nui-button-default nui-button-rounded"
+        >
+          <!--[--><svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            role="img"
+            class="icon h-3 w-3"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            data-v-26e5b7b0=""
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m12 19l-7-7l7-7m7 7H5"
+            ></path></svg
+          ><span>Cancel</span
+          ><!--]--></button
+        ><button
+          type="submit"
+          rel=""
+          target=""
+          class="nui-button-action nui-button-primary nui-button-rounded"
+        >
+          <!--[--><svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            role="img"
+            class="icon h-3 w-3"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            data-v-26e5b7b0=""
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 6L9 17l-5-5"
+            ></path></svg
+          ><span>Save</span
+          ><!--]-->
+        </button>
+      </div>
+    </div>
+    <div class="px-10 py-5">
+      <div class="grid  ">
+        <div class="grid  gap-4 py-8">
+
+          <div class="col-span-12 sm:col-span-8">
+
+              <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded nui-has-icon">
+              <label for="ninja-input-1826" class="nui-input-label"
+                ><!--[-->What is this meeting about?<!--]--></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input title="g"
+                    type="text"
+                    class="nui-input"
+                    placeholder="Ex: Project review with the design team"
+                    value=""
+                  /><!----><!---->
+                  <div class="nui-input-icon">
+                    <!--[--><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      data-v-26e5b7b0=""
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <rect width="3" height="8" x="13" y="2" rx="1.5"></rect>
+                        <path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
+                        <rect width="3" height="8" x="8" y="14" rx="1.5"></rect>
+                        <path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
+                        <rect width="8" height="3" x="14" y="13" rx="1.5"></rect>
+                        <path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
+                        <rect width="8" height="3" x="2" y="8" rx="1.5"></rect>
+                        <path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>
+                      </g></svg
+                    ><!--]-->
+                  </div>
+                  <!--[--><!--]-->
+                </div>
+                <!---->
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="col-span-12 sm:col-span-8">
+            <!--[-->
+            <div
+              class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+            >
+              <label for="ninja-input-1969" class="nui-input-label"
+                ><!--[-->Event category<!--]--></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input 
+                    type="text"
+                    list="eventCategories"
+                    class="nui-input !h-11 !ps-11"
+                    placeholder="Pick a category..."
+
+                    required
+                  /><!----><!---->
+                  <div class="!h-11 !w-11 nui-input-icon">
+                    <!--[--><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 256 256"
+                      data-v-26e5b7b0=""
+                    >
+                      <g fill="currentColor">
+                        <path
+                          d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                          opacity=".2"
+                        ></path>
+                        <path
+                          d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                        ></path>
+                      </g></svg
+                    ><!--]-->
+                  </div>
+                  <!--[--><!--]-->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <datalist id="eventCategories">
+              <option value="Chrome"></option>
+              <option value="Firefox"></option>
+              <option value="Opera"></option>
+              <option value="Safari"></option>
+              <option value="Microsoft Edge"></option></datalist
+            ><!--]-->
+          </div>
+        </div>
+
+        <div class="grid  gap-4 py-8">
+
+          <div class="col-span-12 sm:col-span-8">
+
+              <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded nui-has-icon">
+                <label for="ninja-input-1826" class="nui-input-label"
+                  ><!--[-->What is this meeting about?<!--]--></label
+                >
+                <div class="nui-input-outer">
+                  <div>
+                    <input title="g"
+                      type="text"
+                      class="nui-input"
+                      placeholder="Ex: Project review with the design team"
+                      value=""
+                    /><!----><!---->
+                    <div class="nui-input-icon">
+                      <!--[--><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true"
+                        role="img"
+                        class="icon nui-input-icon-inner"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        data-v-26e5b7b0=""
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        >
+                          <rect width="3" height="8" x="13" y="2" rx="1.5"></rect>
+                          <path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
+                          <rect width="3" height="8" x="8" y="14" rx="1.5"></rect>
+                          <path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
+                          <rect width="8" height="3" x="14" y="13" rx="1.5"></rect>
+                          <path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
+                          <rect width="8" height="3" x="2" y="8" rx="1.5"></rect>
+                          <path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>
+                        </g></svg
+                      ><!--]-->
+                    </div>
+                    <!--[--><!--]-->
+                  </div>
+                  <!---->
+                </div>
+              </div>
+
+
+          </div>
+
+          <div class="col-span-12 sm:col-span-8">
+            <!--[-->
+            <div
+              class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+            >
+              <label for="ninja-input-1969" class="nui-input-label"
+                ><!--[-->Event category<!--]--></label
+              >
+              <div class="nui-input-outer">
+                <div>
+                  <input 
+                    type="text"
+                    list="eventCategories"
+                    class="nui-input !h-11 !ps-11"
+                    placeholder="Pick a category..."
+
+                    required
+                  /><!----><!---->
+                  <div class="!h-11 !w-11 nui-input-icon">
+                    <!--[--><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true"
+                      role="img"
+                      class="icon nui-input-icon-inner"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 256 256"
+                      data-v-26e5b7b0=""
+                    >
+                      <g fill="currentColor">
+                        <path
+                          d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                          opacity=".2"
+                        ></path>
+                        <path
+                          d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                        ></path>
+                      </g></svg
+                    ><!--]-->
+                  </div>
+                  <!--[--><!--]-->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <datalist id="eventCategories">
+              <option value="Chrome"></option>
+              <option value="Firefox"></option>
+              <option value="Opera"></option>
+              <option value="Safari"></option>
+              <option value="Microsoft Edge"></option></datalist
+            ><!--]-->
+          </div>
+        </div>
+
+
+
+        <div class="col-span-12">
+          <!--[-->
+          <div
+            class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+          >
+            <label for="ninja-input-1963" class="nui-input-label"
+              ><!--[-->Event title<!--]--></label
+            >
+            <div class="nui-input-outer">
+              <div>
+                <input
+                  id="ninja-input-1963"
+                  type="text"
+                  class="nui-input !h-11 !ps-11"
+                  placeholder="Ex: Next team building party"
+                  value=""
+                /><!----><!---->
+                <div class="!h-11 !w-11 nui-input-icon">
+                  <!--[--><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon nui-input-icon-inner"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-26e5b7b0=""
+                  >
+                    <g fill="currentColor">
+                      <path
+                        d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                        opacity=".2"
+                      ></path>
+                      <path
+                        d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                      ></path>
+                    </g></svg
+                  ><!--]-->
+                </div>
+                <!--[--><!--]-->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <!--]-->
+        </div>
+        <div class="col-span-12">
+          <!--[-->
+          <div
+            class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+          >
+            <label for="ninja-input-1964" class="nui-input-label"
+              ><!--[-->Short description<!--]--></label
+            >
+            <div class="nui-input-outer">
+              <div>
+                <input
+                  id="ninja-input-1964"
+                  type="text"
+                  class="nui-input !h-11 !ps-11"
+                  placeholder="Ex: We will meet to have fun together"
+                  value=""
+                /><!----><!---->
+                <div class="!h-11 !w-11 nui-input-icon">
+                  <!--[--><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon nui-input-icon-inner"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-26e5b7b0=""
+                  >
+                    <g fill="currentColor">
+                      <path
+                        d="M112 80a32 32 0 1 1-32-32a32 32 0 0 1 32 32Zm64 32a32 32 0 1 0-32-32a32 32 0 0 0 32 32Zm-96 32a32 32 0 1 0 32 32a32 32 0 0 0-32-32Zm96 0a32 32 0 1 0 32 32a32 32 0 0 0-32-32Z"
+                        opacity=".2"
+                      ></path>
+                      <path
+                        d="M80 40a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Zm96 16a40 40 0 1 0-40-40a40 40 0 0 0 40 40Zm0-64a24 24 0 1 1-24 24a24 24 0 0 1 24-24Zm-96 80a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Zm96-64a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Z"
+                      ></path>
+                    </g></svg
+                  ><!--]-->
+                </div>
+                <!--[--><!--]-->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <!--]-->
+        </div>
+
+      </div>
+    </div>
+    <div
+      class="bg-muted-50 dark:bg-muted-800/70 border-muted-200 dark:border-muted-700 border-t p-10"
+    >
+      <div class="flex items-center justify-between">
+        <div>
+          <h3
+            class=" text-muted-800 nui-heading nui-heading-md nui-weight-medium nui-lead-normal"
+          >
+            <!--[-->
+            Meeting details
+            <!--]-->
+          </h3>
+          <p
+            class="nui-text nui-content-xs nui-weight-normal nui-lead-normal text-muted-400"
+          >
+            <!--[-->Add some meeting details<!--]-->
+          </p>
+          <div class="col-span-12">
+            <!--[--><!--[-->
+            <div class="nui-autocomplete nui-autocomplete-md nui-autocomplete-default nui-autocomplete-curved nui-has-icon">
+              <label class="nui-autocomplete-label"><!--[-->Participants<!--]--></label>
+              <div class="nui-autocomplete-outer nui-autocomplete-input">
+                <input
+                title="f"
+                #inputElement
+                nz-input
+                name="idPara"
+                nzSize="small"
+                *ngIf="inputVisible"
+                type="text"
+                [(ngModel)]="inputValue"
+                (blur)="handleInputConfirm()"
+                (keydown.enter)="handleInputConfirm()"
+                class="nui-autocomplete-input nui-input w-45 h-75 mx-3"
+                placeholder="Add participants..."
+                /><!---->
+                <nz-tag class="nui-button nui-button-default nui-button-rounded ui-button-text-icons"
+                *ngFor="let tag of tags; let i = index"
+                [nzMode]="i === 0 ? 'default' : 'closeable'"
+                (nzOnClose)="handleClose(tag)"
+              >
+                {{ sliceTagName(tag) }}
+                <span nz-icon nzType="user"></span>
+              </nz-tag>
+              <nz-tag  class="nui-tag nui-tag-solid nui-tag-muted nui-tag-rounded  editable-tag" *ngIf="!inputVisible" nzNoAnimation (click)="showInput()">
+                <span nz-icon nzType="plus"></span>
+                New Tag
+              </nz-tag>
+                <div class="nui-autocomplete-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                    role="img"
+                    class="icon nui-autocomplete-icon-inner"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 256 256"
+                    data-v-26e5b7b0=""
+                  >
+                    <g fill="currentColor">
+                      <path
+                        d="M136 108a52 52 0 1 1-52-52a52 52 0 0 1 52 52Z"
+                        opacity=".2"
+                      ></path>
+                      <path
+                        d="M117.25 157.92a60 60 0 1 0-66.5 0a95.83 95.83 0 0 0-47.22 37.71a8 8 0 1 0 13.4 8.74a80 80 0 0 1 134.14 0a8 8 0 0 0 13.4-8.74a95.83 95.83 0 0 0-47.22-37.71ZM40 108a44 44 0 1 1 44 44a44.05 44.05 0 0 1-44-44Zm210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16a44 44 0 1 0-16.34-84.87a8 8 0 1 1-5.94-14.85a60 60 0 0 1 55.53 105.64a95.83 95.83 0 0 1 47.22 37.71a8 8 0 0 1-2.33 11.07Z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <!----><!----><!---->
+
+                 <!--[--><!--[-->
+
+              </div>
+              <!----><!---->
+            </div>
+            <!--]--><!--]-->
+          </div>
+
+
+
+        </div>
+        <div>
+          <button
+            type="button"
+            rel=""
+            target=""
+            class="nui-button-action nui-button-default nui-button-rounded"
+          >
+            <!--[--><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="icon h-3 w-3"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              data-v-26e5b7b0=""
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7-7v14"
+              ></path></svg
+            ><span>Add people</span
+            ><!--]-->
+          </button>
+        </div>
+      </div>
+      <div class="mt-10 grid grid-cols-1f gap-4">
+        <div class="divide-y divide-gray-200">
+          <div class="grid grid-cols-12 gap-4 py-8">
+
+            <div class="col-span-12">
+              <!--[--><!--[-->
+              <div class="flex w-full flex-col gap-4 sm:flex-row">
+                <div class="relative grow">
+                  <!--[-->
+                  <div
+                    class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+                  >
+                    <label for="ninja-input-1965" class="nui-input-label"
+                      ><!--[-->Start date<!--]--></label
+                    >
+                    <div class="nui-input-outer">
+                      <div>
+                        <input
+                          id="ninja-input-1965"
+                          type="text"
+                          class="nui-input !h-11 !ps-11"
+                        /><!----><!---->
+                        <div class="!h-11 !w-11 nui-input-icon">
+                          <!--[--><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true"
+                            role="img"
+                            class="icon nui-input-icon-inner"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 256 256"
+                            data-v-26e5b7b0=""
+                          >
+                            <g fill="currentColor">
+                              <path
+                                d="M216 48v40H40V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                                opacity=".2"
+                              ></path>
+                              <path
+                                d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16ZM72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160v112Z"
+                              ></path>
+                            </g></svg
+                          ><!--]-->
+                        </div>
+                        <!--[--><!--]-->
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <!--]-->
+                </div>
+                <div class="relative grow">
+                  <!--[-->
+                  <div
+                    class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+                  >
+                    <label for="ninja-input-1966" class="nui-input-label"
+                      ><!--[-->End date<!--]--></label
+                    >
+                    <div class="nui-input-outer">
+                      <div>
+                        <input
+                          id="ninja-input-1966"
+                          type="text"
+                          class="nui-input !h-11 !ps-11"
+                        /><!----><!---->
+                        <div class="!h-11 !w-11 nui-input-icon">
+                          <!--[--><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true"
+                            role="img"
+                            class="icon nui-input-icon-inner"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 256 256"
+                            data-v-26e5b7b0=""
+                          >
+                            <g fill="currentColor">
+                              <path
+                                d="M216 48v40H40V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Z"
+                                opacity=".2"
+                              ></path>
+                              <path
+                                d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16ZM72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160v112Z"
+                              ></path>
+                            </g></svg
+                          ><!--]-->
+                        </div>
+                        <!--[--><!--]-->
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <!--]-->
+                </div>
+              </div>
+              <!--]-->
+            </div>
+
+            <div class="col-span-12 sm:col-span-6">
+              <!--[-->
+              <div
+                class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+              >
+                <label for="ninja-input-1968" class="nui-input-label"
+                  ><!--[-->Event color<!--]--></label
+                >
+                <div class="nui-input-outer">
+                  <div>
+                    <input
+                      id="ninja-input-1968"
+                      type="color"
+                      list="eventColors"
+                      class="nui-input !h-11 !ps-11 appearance-none"
+                      placeholder="Pick an event color..."
+                      value=""
+                    /><!----><!---->
+                    <div class="!h-11 !w-11 nui-input-icon">
+                      <!--[--><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true"
+                        role="img"
+                        class="icon nui-input-icon-inner"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 256 256"
+                        data-v-26e5b7b0=""
+                      >
+                        <g fill="currentColor">
+                          <path
+                            d="M208 144a80 80 0 0 1-80 80V16s80 56 80 128Z"
+                            opacity=".2"
+                          ></path>
+                          <path
+                            d="M174 47.75a254.19 254.19 0 0 0-41.45-38.3a8 8 0 0 0-9.18 0A254.19 254.19 0 0 0 82 47.75C54.51 79.32 40 112.6 40 144a88 88 0 0 0 176 0c0-31.4-14.51-64.68-42-96.25ZM56 144c0-50 42.26-92.71 64-111.4v182.94A72.08 72.08 0 0 1 56 144Zm80 71.54V32.6C157.74 51.29 200 94 200 144a72.08 72.08 0 0 1-64 71.54Z"
+                          ></path>
+                        </g></svg
+                      ><!--]-->
+                    </div>
+                    <!--[--><!--]-->
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <datalist id="eventColors">
+                <option value="#84cc16"></option>
+                <option value="#22c55e"></option>
+                <option value="#0ea5e9"></option>
+                <option value="#6366f1"></option>
+                <option value="#8b5cf6"></option>
+                <option value="#d946ef"></option>
+                <option value="#f43f5e"></option>
+                <option value="#facc15"></option>
+                <option value="#fb923c"></option>
+                <option value="#9ca3af"></option></datalist
+              ><!--]-->
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+              <!--[-->
+              <div
+                class="nui-input-wrapper nui-input-default nui-input-md nui-input-curved nui-has-icon"
+              >
+                <label for="ninja-input-1969" class="nui-input-label"
+                  ><!--[-->Event category<!--]--></label
+                >
+                <div class="nui-input-outer">
+                  <div>
+                    <input
+                      id="ninja-input-1969"
+                      type="text"
+                      list="eventCategories"
+                      class="nui-input !h-11 !ps-11"
+                      placeholder="Pick a category..."
+
+                      required
+                    /><!----><!---->
+                    <div class="!h-11 !w-11 nui-input-icon">
+                      <!--[--><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true"
+                        role="img"
+                        class="icon nui-input-icon-inner"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 256 256"
+                        data-v-26e5b7b0=""
+                      >
+                        <g fill="currentColor">
+                          <path
+                            d="M200 128a32 32 0 0 0 25.6 31.36a8 8 0 0 1 6.4 7.83V192a8 8 0 0 1-8 8H96V56h128a8 8 0 0 1 8 8v24.81a8 8 0 0 1-6.4 7.83A32 32 0 0 0 200 128Z"
+                            opacity=".2"
+                          ></path>
+                          <path
+                            d="M227.19 104.48A16 16 0 0 0 240 88.81V64a16 16 0 0 0-16-16H32a16 16 0 0 0-16 16v24.81a16 16 0 0 0 12.81 15.67a24 24 0 0 1 0 47A16 16 0 0 0 16 167.19V192a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16v-24.81a16 16 0 0 0-12.81-15.67a24 24 0 0 1 0-47ZM32 167.2a40 40 0 0 0 0-78.39V64h56v128H32Zm192 0V192H104V64h120v24.8a40 40 0 0 0 0 78.39Z"
+                          ></path>
+                        </g></svg
+                      ><!--]-->
+                    </div>
+                    <!--[--><!--]-->
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <datalist id="eventCategories">
+                <option value="Chrome"></option>
+                <option value="Firefox"></option>
+                <option value="Opera"></option>
+                <option value="Safari"></option>
+                <option value="Microsoft Edge"></option></datalist
+              ><!--]-->
+            </div>
+          </div>
+          <div class="flex items-center gap-4 pt-4">
+            <button
+              type="button"
+              rel=""
+              target=""
+              class="nui-button nui-button-medium nui-button-curved nui-button-solid nui-button-default !h-12 w-full"
+            >
+              <!--[-->Cancel<!--]--><!----></button
+            ><button
+              type="submit"
+              rel=""
+              target=""
+              class="nui-button nui-button-medium nui-button-curved nui-button-solid nui-button-primary !h-12 w-full"
+            >
+              <!--[-->Create<!--]--><!---->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-muted-50 dark:bg-muted-800/70 border-muted-200 dark:border-muted-700 border-t p-10"
+    >
+      <div class="grid grid-cols-12 gap-8 pb-6">
+
+        <div class="col-span-12 grid grid-cols-12">
+          <div
+            class="col-span-12 flex flex-col justify-start pt-1 sm:col-span-3"
+          >
+            <label class="nui-label text-[0.825rem]">Notifications</label>
+          </div>
+          <div class="col-span-12 sm:col-span-9">
+            <div class="flex flex-col gap-6">
+              <!--[-->
+              <div
+                class="nui-checkbox nui-checkbox-rounded nui-checkbox-primary"
+              >
+                <div class="nui-checkbox-outer">
+                  <input
+                    id="ninja-input-1841"
+                    true-value="true"
+                    false-value="false"
+                    class="nui-checkbox-input"
+                    type="checkbox"
+                  />
+                  <div class="nui-checkbox-inner"></div>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 17 12"
+                    class="nui-icon-check"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"
+                    ></path></svg
+                  ><svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="nui-icon-indeterminate"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                      d="M2 12h20"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="nui-checkbox-label-wrapper">
+                  <label for="ninja-input-1841" class="nui-checkbox-label-text"
+                    ><!--[-->General notifications<!--]--></label
+                  ><!---->
+                </div>
+              </div>
+              <!--]--><!--[-->
+              <div
+                class="nui-checkbox nui-checkbox-rounded nui-checkbox-primary"
+              >
+                <div class="nui-checkbox-outer">
+                  <input
+                    id="ninja-input-1842"
+                    true-value="true"
+                    false-value="false"
+                    class="nui-checkbox-input"
+                    type="checkbox"
+                  />
+                  <div class="nui-checkbox-inner"></div>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 17 12"
+                    class="nui-icon-check"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"
+                    ></path></svg
+                  ><svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="nui-icon-indeterminate"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                      d="M2 12h20"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="nui-checkbox-label-wrapper">
+                  <label for="ninja-input-1842" class="nui-checkbox-label-text"
+                    ><!--[-->Team notifications<!--]--></label
+                  ><!---->
+                </div>
+              </div>
+              <!--]--><!--[-->
+              <div
+                class="nui-checkbox nui-checkbox-rounded nui-checkbox-primary"
+              >
+                <div class="nui-checkbox-outer">
+                  <input
+                    id="ninja-input-1843"
+                    true-value="true"
+                    false-value="false"
+                    class="nui-checkbox-input"
+                    type="checkbox"
+                  />
+                  <div class="nui-checkbox-inner"></div>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 17 12"
+                    class="nui-icon-check"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"
+                    ></path></svg
+                  ><svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="nui-icon-indeterminate"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                      d="M2 12h20"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="nui-checkbox-label-wrapper">
+                  <label for="ninja-input-1843" class="nui-checkbox-label-text"
+                    ><!--[-->Auto reminders<!--]--></label
+                  ><!---->
+                </div>
+              </div>
+              <!--]--><!--[-->
+              <div
+                class="nui-checkbox nui-checkbox-rounded nui-checkbox-primary"
+              >
+                <div class="nui-checkbox-outer">
+                  <input
+                    id="ninja-input-1844"
+                    true-value="true"
+                    false-value="false"
+                    class="nui-checkbox-input"
+                    type="checkbox"
+                  />
+                  <div class="nui-checkbox-inner"></div>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 17 12"
+                    class="nui-icon-check"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M16.576.414a1.386 1.386 0 0 1 0 1.996l-9.404 9.176A1.461 1.461 0 0 1 6.149 12c-.37 0-.74-.139-1.023-.414L.424 6.998a1.386 1.386 0 0 1 0-1.996 1.47 1.47 0 0 1 2.046 0l3.68 3.59L14.53.414a1.47 1.47 0 0 1 2.046 0z"
+                    ></path></svg
+                  ><svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="nui-icon-indeterminate"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                      d="M2 12h20"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="nui-checkbox-label-wrapper">
+                  <label for="ninja-input-1844" class="nui-checkbox-label-text"
+                    ><!--[-->Modifications<!--]--></label
+                  ><!---->
+                </div>
+              </div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+  <div><!----></div>
+</form>
